@@ -6,6 +6,13 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// DListNode double-linked-list 双链表定义
+type DListNode struct {
+	Val  int
+	Prev *DListNode
+	Next *DListNode
+}
+
 // Ints2List convert []int to singly-linked-list.
 func Ints2List(nums []int) *ListNode {
 	if len(nums) == 0 {
