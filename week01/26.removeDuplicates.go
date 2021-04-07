@@ -2,7 +2,7 @@ package week01
 
 // 给你一个有序数组nums，请你 原地 删除重复出现的元素，使每个元素只出现一次 ，返回删除后数组的新长度。
 // 不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。
-// @Leetcode：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
+// @Leetcode: https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
 
 // 方法一：对于有序的数组，双指针法（也叫快慢指针法）遍历能解决大部分case，应该先往双指针上面靠
 // 题解：慢指针i，快指针j，i,j:=0,1 快指针j先走，

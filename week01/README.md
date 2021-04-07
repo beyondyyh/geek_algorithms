@@ -46,6 +46,10 @@
 - 优先队列，带优先级的queue，如任务调度系统，总是会先执行优先级高的任务
 - 双端队列，更高级的用法
 
+## week01学习总结
+
+todos
+
 ## 练习题
 
 | Title | Code | <span id="Top">Difficulty</span> |
@@ -55,6 +59,6 @@
 [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)|[21.mergeTwoLists.go](21.mergeTwoLists.go)|S|
 [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)|[88.merge.go](88.merge.go)|S|
 [两数之和](https://leetcode-cn.com/problems/two-sum/)|[1.twoSum.go](1.twoSum.go)|S|
-[移动零](https://leetcode-cn.com/problems/move-zeroes/)|[283.moveZeros.go](283.moveZeros.go)|S|
+[移动零](https://leetcode-cn.com/problems/move-zeroes/)|[283.moveZeroes.go](283.moveZeroes.go)|S|
 [加一](https://leetcode-cn.com/problems/plus-one/)|[66.plusOne.go](66.plusOne)|S|
 [设计双端循环队列](https://leetcode-cn.com/problems/design-circular-deque/)|[641.MyCircularDeque.go](641.MyCircularDeque.go)|M|
