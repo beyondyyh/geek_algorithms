@@ -8,18 +8,18 @@ func NewDListNode(x int) *DListNode {
 	return &DListNode{Val: x}
 }
 
-// MyCircularDequeBasedOnDLinkedList MyCircularDeque based on double-linked-list structure delcare
-type MyCircularDequeBasedOnDLinkedList struct {
+// MyCircularDeque MyCircularDeque based on double-linked-list structure delcare
+type MyCircularDeque struct {
 	len, cap   int        // len 链表实际长度，cap 开辟的空间长度
 	head, tail *DListNode // head,tail 其实是哑结点
 }
 
-// NewMyCircularDequeBasedOnDLinkedList struct initialize, Set the size of the deque to be k.
-func NewMyCircularDeque(k int) *MyCircularDequeBasedOnDLinkedList {
+// NewMyCircularDeque struct initialize, Set the size of the deque to be k.
+func NewMyCircularDeque(k int) *MyCircularDeque {
 	head, tail := NewDListNode(-1), NewDListNode(-1)
 	head.Next = tail
 	tail.Prev = head
-	return &MyCircularDequeBasedOnDLinkedList{
+	return &MyCircularDeque{
 		cap:  k,
 		head: head,
 		tail: tail,
@@ -27,7 +27,7 @@ func NewMyCircularDeque(k int) *MyCircularDequeBasedOnDLinkedList {
 }
 
 // InsertFront Adds an item at the front of Deque. Return true if the operation is successful.
-func (q *MyCircularDequeBasedOnDLinkedList) InsertFront(x int) bool {
+func (q *MyCircularDeque) InsertFront(x int) bool {
 	if q.IsFull() {
 		return false
 	}
@@ -42,7 +42,7 @@ func (q *MyCircularDequeBasedOnDLinkedList) InsertFront(x int) bool {
 }
 
 // InsertLast Adds an item at the rear of Deque. Return true if the operation is successful.
-func (q *MyCircularDequeBasedOnDLinkedList) InsertLast(x int) bool {
+func (q *MyCircularDeque) InsertLast(x int) bool {
 	if q.IsFull() {
 		return false
 	}
@@ -57,7 +57,7 @@ func (q *MyCircularDequeBasedOnDLinkedList) InsertLast(x int) bool {
 }
 
 // DeleteFront Deletes an item from the front of Deque. Return true if the operation is successful.
-func (q *MyCircularDequeBasedOnDLinkedList) DeleteFront() bool {
+func (q *MyCircularDeque) DeleteFront() bool {
 	if q.IsEmpty() {
 		return false
 	}
@@ -71,7 +71,7 @@ func (q *MyCircularDequeBasedOnDLinkedList) DeleteFront() bool {
 }
 
 // DeleteLast Deletes an item from the rear of Deque. Return true if the operation is successful.
-func (q *MyCircularDequeBasedOnDLinkedList) DeleteLast() bool {
+func (q *MyCircularDeque) DeleteLast() bool {
 	if q.IsEmpty() {
 		return false
 	}
@@ -85,21 +85,21 @@ func (q *MyCircularDequeBasedOnDLinkedList) DeleteLast() bool {
 }
 
 // GetFront Get the front item from the deque.
-func (q *MyCircularDequeBasedOnDLinkedList) GetFront() int {
+func (q *MyCircularDeque) GetFront() int {
 	return q.head.Next.Val
 }
 
 // GetRear Get the last item from the deque.
-func (q *MyCircularDequeBasedOnDLinkedList) GetRear() int {
+func (q *MyCircularDeque) GetRear() int {
 	return q.tail.Prev.Val
 }
 
 // IsEmpty Checks whether the circular deque is empty or not.
-func (q *MyCircularDequeBasedOnDLinkedList) IsEmpty() bool {
+func (q *MyCircularDeque) IsEmpty() bool {
 	return q.len == 0
 }
 
 // IsFull Checks whether the circular deque is full or not.
-func (q *MyCircularDequeBasedOnDLinkedList) IsFull() bool {
+func (q *MyCircularDeque) IsFull() bool {
 	return q.len == q.cap
 }
