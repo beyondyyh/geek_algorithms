@@ -138,3 +138,11 @@ func Postorder(root *TreeNode) []int {
 ## 图
 
 面试中并不多，如岛屿和陆地个数等。
+
+## 练习题
+
+| Title | Code | <span id="Top">Difficulty</span> |
+| ----- | ---- | -------------------------------- |
+[剑指 Offer 40. 最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/)|[40.getLeastNumbers.go](40.getLeastNumbers.go)|S|
+[滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)|[59.maxSlidingWindow.go](59.maxSlidingWindow.go)|H|
+[前K个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/)|[347.topKFrequent.go](347.topKFrequent.go)|M|
