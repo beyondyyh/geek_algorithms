@@ -8,6 +8,7 @@ type (
 	TreeNode      = kit.TreeNode
 	Item          = kit.Item
 	PriorityQueue = kit.PriorityQueue
+	Stack         = kit.Stack
 )
 
 var (

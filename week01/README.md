@@ -63,3 +63,5 @@ todos
 [移动零](https://leetcode-cn.com/problems/move-zeroes/)|[283.moveZeroes.go](283.moveZeroes.go)|S|
 [加一](https://leetcode-cn.com/problems/plus-one/)|[66.plusOne.go](66.plusOne)|S|
 [设计双端循环队列](https://leetcode-cn.com/problems/design-circular-deque/)|[641.MyCircularDeque.go](641.MyCircularDeque.go)|M|
+[有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)|[20.isValid.go](20.isValid.go)|S|
+[最小栈](https://leetcode-cn.com/problems/min-stack/)|[155.minStack.go](155.minStack.go)|S|
