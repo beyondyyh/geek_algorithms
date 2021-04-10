@@ -8,5 +8,6 @@
 |[06] <https://leetcode-cn.com/problems/bulls-and-cows/>|-|
 |[07] <https://leetcode-cn.com/problems/design-circular-deque/>|[641.MyCircularDeque.go](./week01/641.MyCircularDeque.go)|
 |[08] <https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/>|[350.intersect.go](./week02/350.intersect.go)|
-|[09] <https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/>|-|
-[10] <https://leetcode-cn.com/problems/remove-outermost-parentheses/>|-|
+|[09] <https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/>|[59.maxSlidingWindow.go](./week02/59.maxSlidingWindow.go)|
+|[10] <https://leetcode-cn.com/problems/remove-outermost-parentheses/>|-|
+|[11] <https://leetcode-cn.com/problems/fizz-buzz/>-|
