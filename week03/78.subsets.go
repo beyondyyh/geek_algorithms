@@ -47,7 +47,6 @@ func dfs(res *[][]int, nums []int, subset []int, index int) {
 	// 1. terminator 终止条件
 	if index == len(nums) {
 		*res = append(*res, subset)
-		// *res = append(*res, append([]int(nil), subset...))
 		return
 	}
 
@@ -55,11 +54,43 @@ func dfs(res *[][]int, nums []int, subset []int, index int) {
 	// 2.1>. 不选当前index的元素，subset不需要变更
 	dfs(res, nums, subset, index+1)
 	// 2.2>. 选当前index的元素，把当前元素加入subset
-	subset = append(subset, nums[index])
-	dfs(res, nums, subset, index+1)
+	newsubset := append(subset, nums[index])
+	dfs(res, nums, newsubset, index+1)
 
 	// 3. revert current states，清理当前层
-	// 由于subset每一层都会传下去相当于是全局变量，不是局部变量，当前层做了修改，
-	// 往下层传递之前需要revert，即把上面append的元素再remove掉
-	subset = subset[0 : len(subset)-1]
+	// newsubset是局部变量，所以不需要revert
+}
+
+// 方法三：方法二的优雅写法
+// 时间复杂度：O(n * 2^n)，一共 2^n种状态树，每种状态需要O(n)的时间来构建子集
+// 空间复杂度：O(n)，临时slice newsubset的空间代价为O(n)
+func subsets3(nums []int) [][]int {
+	res := [][]int{}
+	if len(nums) == 0 {
+		return res
+	}
+
+	// dfs
+	// - index 	当前第几层，也就是遍历到第几个元素
+	// - subset	每一层逻辑的中间结果
+	var dfs func(int, []int)
+	dfs = func(index int, subset []int) {
+		// 1. terminator 递归终止条件
+		if index == len(nums) {
+			res = append(res, append([]int{}, subset...))
+			return
+		}
+
+		// 2. 处理当前层逻辑 & drill down
+		// 2.1> 不选择当前元素
+		dfs(index+1, subset)
+		// 2.2> 选择当前元素
+		newsubset := append(subset, nums[index])
+		dfs(index+1, newsubset)
+
+		// 3. revert states, subset是局部变量不需要revert
+	}
+
+	dfs(0, []int{})
+	return res
 }

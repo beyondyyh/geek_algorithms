@@ -110,4 +110,6 @@ int divide_conquer(Problem *problem, int params) { 
 |[验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)|[98.isValidBST.go](98.isValidBST.go)|M|
 |[二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)|[104.maxDepth.go](104.maxDepth.go)|S|
 |[Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)|[50.myPow.go](50.myPow.go)|M|
-[子集](https://leetcode-cn.com/problems/subsets/)|[78.subsets.go](78.subsets.go)|M|
+|[子集](https://leetcode-cn.com/problems/subsets/)|[78.subsets.go](78.subsets.go)|M|
+|[电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)|[17.letterCombinations.go](17.letterCombinations.go)|M|
+|[N 皇后](https://leetcode-cn.com/problems/n-queens/)|[51.solveNQueens.go](51.solveNQueens.go)|H|

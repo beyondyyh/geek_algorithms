@@ -14,16 +14,16 @@ func Test_generateParenthesis(t *testing.T) {
 		input  int
 		expect []string
 	}{
-		// {
-		// 	name:   "x1",
-		// 	input:  1,
-		// 	expect: []string{"()"},
-		// },
-		// {
-		// 	name:   "x2",
-		// 	input:  2,
-		// 	expect: []string{"()()", "(())"},
-		// },
+		{
+			name:   "x1",
+			input:  1,
+			expect: []string{"()"},
+		},
+		{
+			name:   "x2",
+			input:  2,
+			expect: []string{"(())", "()()"},
+		},
 		{
 			name:   "x3",
 			input:  3,
@@ -31,6 +31,7 @@ func Test_generateParenthesis(t *testing.T) {
 		},
 	}
 	for _, c := range cases {
-		assert.Equal(c.expect, generateParenthesis(c.input), c.name)
+		assert.Equal(c.expect, generateParenthesis1(c.input), c.name)
+		assert.Equal(c.expect, generateParenthesis2(c.input), c.name)
 	}
 }

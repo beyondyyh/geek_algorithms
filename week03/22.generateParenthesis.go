@@ -1,7 +1,5 @@
 package week03
 
-import "fmt"
-
 // 数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
 // 示例 1：
 // 输入：n = 3
@@ -22,8 +20,11 @@ import "fmt"
 // }
 
 // 方法一：递归、剪枝
-func generateParenthesis(n int) []string {
-	var res []string
+func generateParenthesis1(n int) []string {
+	res := []string{}
+	if n == 0 {
+		return res
+	}
 	generate(0, 0, n, "", &res)
 	return res
 }
@@ -39,7 +40,7 @@ func generate(left, right, n int, s string, res *[]string) {
 	// 已经使用的左括号个数=n，且右括号个数为也为n
 	if left == n && right == n {
 		*res = append(*res, s)
-		fmt.Printf("left:%d right:%d s:%s res:%+v\n", left, right, s, res)
+		// fmt.Printf("left:%d right:%d s:%s res:%+v\n", left, right, s, res)
 		return
 	}
 
@@ -60,4 +61,30 @@ func generate(left, right, n int, s string, res *[]string) {
 
 	// revese states
 	// nothing to do
+}
+
+// 方法二：方法一优雅一点的写法
+func generateParenthesis2(n int) []string {
+	res := []string{}
+	if n == 0 {
+		return res
+	}
+
+	var generate func(int, int, string)
+	generate = func(left, right int, s string) {
+		// 1. terminator 递归终止条件
+		if left == n && right == n {
+			res = append(res, s)
+			return // return 不能忘了
+		}
+		// 2. process current logic & drill down
+		if left < n {
+			generate(left+1, right, s+"(")
+		}
+		if right < left {
+			generate(left, right+1, s+")")
+		}
+	}
+	generate(0, 0, "")
+	return res
 }
