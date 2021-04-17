@@ -47,18 +47,19 @@ func dfs(res *[][]int, nums []int, subset []int, index int) {
 	// 1. terminator 终止条件
 	if index == len(nums) {
 		*res = append(*res, subset)
+		// *res = append(*res, append([]int(nil), subset...))
 		return
 	}
 
 	// 2. process current logic & drill down
-	// 2.1). 不选当前index的元素，subset不需要变更
+	// 2.1>. 不选当前index的元素，subset不需要变更
 	dfs(res, nums, subset, index+1)
-
-	// 2.2). 选当前index的元素，把当前元素加入subset里
+	// 2.2>. 选当前index的元素，把当前元素加入subset
 	subset = append(subset, nums[index])
 	dfs(res, nums, subset, index+1)
 
 	// 3. revert current states，清理当前层
-	// 由于subset相当于是全局变量，不是局部变量，当前层修改了之后，往下传递之前需要revert，即把上面append的当前元素在remove掉
+	// 由于subset每一层都会传下去相当于是全局变量，不是局部变量，当前层做了修改，
+	// 往下层传递之前需要revert，即把上面append的元素再remove掉
 	subset = subset[0 : len(subset)-1]
 }
