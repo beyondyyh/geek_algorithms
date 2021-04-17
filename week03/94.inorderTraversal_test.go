@@ -26,5 +26,6 @@ func Test_inorderTraversal(t *testing.T) {
 		root := kit.Ints2Tree(c.input)
 		assert.Equal(c.expect, inorderTraversal1(root), c.name)
 		assert.Equal(c.expect, inorderTraversal2(root), c.name)
+		assert.Equal(c.expect, inorderTraversal3(root), c.name)
 	}
 }

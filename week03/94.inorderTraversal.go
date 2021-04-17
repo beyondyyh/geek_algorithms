@@ -13,6 +13,32 @@ func inorderTraversal1(root *TreeNode) []int {
 	return res
 }
 
+func inorderTraversal2(root *TreeNode) []int {
+	var res []int
+	inorderRecursion(root, &res)
+	return res
+}
+
+// inorderRecursion 递归四部曲
+func inorderRecursion(root *TreeNode, res *[]int) {
+	// terminator 终结者，先找返回条件
+	if root == nil {
+		return
+	}
+
+	// drill down  向下进入下一层
+	inorderRecursion(root.Left, res)
+
+	// process current logic 处理当前逻辑
+	*res = append(*res, root.Val)
+
+	// drill down  向下进入下一层
+	inorderRecursion(root.Right, res)
+
+	// revert current status 销毁当前状态
+	// nothing todo
+}
+
 type item [2]interface{}
 
 // 方法二：颜色标记法
@@ -21,12 +47,12 @@ type item [2]interface{}
 // 如果遇到的节点为白色，则将其标记为灰色，然后将其右子节点、自身、左子节点依次入栈。
 // 如果遇到的节点为灰色，则将节点的值输出。
 // 时间复杂度：O(n)
-func inorderTraversal2(root *TreeNode) []int {
+func inorderTraversal3(root *TreeNode) []int {
 	var res []int
 	white, gray := 0, 1
 	stack := &Istack{item{white, root}}
 	for !stack.IsEmpty() {
-		stack.print()
+		// stack.print()
 		it := stack.Pop().(item)
 		color, node := it[0].(int), it[1].(*TreeNode)
 		if node == nil {

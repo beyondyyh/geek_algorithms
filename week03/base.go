@@ -1,9 +1,10 @@
 package week03
 
 import (
-	"beyondyyh/geek_algorithms/kit"
 	"fmt"
 	"strconv"
+
+	"beyondyyh/geek_algorithms/kit"
 )
 
 type (
