@@ -56,7 +56,9 @@ func Test_merge1(t *testing.T) {
 
 // run: go test -run Test_merge2
 func Test_merge2(t *testing.T) {
-	for _, c := range cases {
+	cases2 := []entry88{}
+	copy(cases2, cases)
+	for _, c := range cases2 {
 		t.Run(c.name, func(t *testing.T) {
 			merge2(c.input.nums1, c.input.m, c.input.nums2, c.input.n)
 			if !reflect.DeepEqual(c.input.nums1, c.expected) {
@@ -68,7 +70,9 @@ func Test_merge2(t *testing.T) {
 
 // run: go test -run Test_merge3
 func Test_merge3(t *testing.T) {
-	for _, c := range cases {
+	cases3 := []entry88{}
+	copy(cases3, cases)
+	for _, c := range cases3 {
 		t.Run(c.name, func(t *testing.T) {
 			merge3(c.input.nums1, c.input.m, c.input.nums2, c.input.n)
 			if !reflect.DeepEqual(c.input.nums1, c.expected) {

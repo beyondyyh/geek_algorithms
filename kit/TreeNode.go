@@ -64,54 +64,102 @@ func Tree2BFS(root *TreeNode) []int {
 }
 
 //------------------------------------------------------------//
-// 递归四部曲：													//
-// 1. terminator 				终结者						   //
-// 2. process current logic 	处理当前层逻辑					//
-// 3. dirll down 				向下进入下层逻辑				//
-// 4. restore current status 	恢复当前层状态				    //
+// 递归四部曲：                                                 //
+// 1. terminator                 终结者                        //
+// 2. process current logic     处理当前层逻辑                  //
+// 3. dirll down                 向下进入下层逻辑               //
+// 4. restore current status     恢复当前层状态                 //
 //------------------------------------------------------------//
 
 // Preorder 前序遍历 根->左->右
 func Preorder(root *TreeNode) []int {
+	// var res []int
+	// if root == nil {
+	// 	return res
+	// }
+
+	// res = append(res, root.Val)
+	// res = append(res, Preorder(root.Left)...)
+	// res = append(res, Preorder(root.Right)...)
+	// return res
+
+	// 标准的递归写法如下：
 	var res []int
-
-	// terminator 先找终止条件
-	if root == nil {
-		return res
+	var recursion func(*TreeNode)
+	recursion = func(root *TreeNode) {
+		// 1. terminator 递归终止条件
+		if root == nil {
+			return
+		}
+		// 2. 当前层逻辑
+		res = append(res, root.Val)
+		// 3. drill down 递推下探
+		recursion(root.Left)
+		recursion(root.Right)
 	}
-
-	// process current logic
-	res = append(res, root.Val)
-
-	// dirll down
-	res = append(res, Preorder(root.Left)...)
-	res = append(res, Preorder(root.Right)...)
-
+	recursion(root)
 	return res
 }
 
 // Inorder 中序遍历 左->根->右
 func Inorder(root *TreeNode) []int {
-	var res []int
-	if root == nil {
-		return res
-	}
+	// var res []int
+	// if root == nil {
+	// 	return res
+	// }
 
-	res = append(res, Inorder(root.Left)...)
-	res = append(res, root.Val)
-	res = append(res, Inorder(root.Right)...)
+	// res = append(res, Inorder(root.Left)...)
+	// res = append(res, root.Val)
+	// res = append(res, Inorder(root.Right)...)
+	// return res
+
+	// 标准的递归写法如下：
+	var res []int
+	var recursion func(*TreeNode)
+	recursion = func(root *TreeNode) {
+		// 1. terminator 递归终止条件
+		if root == nil {
+			return
+		}
+
+		// 3. drill down 递推下探
+		recursion(root.Left)
+
+		// 2. 当前层逻辑
+		res = append(res, root.Val)
+
+		recursion(root.Right)
+	}
+	recursion(root)
 	return res
 }
 
 // Postorder 后续遍历 左->右->根
 func Postorder(root *TreeNode) []int {
-	var res []int
-	if root == nil {
-		return res
-	}
+	// var res []int
+	// if root == nil {
+	// 	return res
+	// }
 
-	res = append(res, Postorder(root.Left)...)
-	res = append(res, Postorder(root.Right)...)
-	res = append(res, root.Val)
+	// res = append(res, Postorder(root.Left)...)
+	// res = append(res, Postorder(root.Right)...)
+	// res = append(res, root.Val)
+	// return res
+
+	// 标准的递归写法如下：
+	var res []int
+	var recursion func(*TreeNode)
+	recursion = func(root *TreeNode) {
+		// 1. terminator 递归终止条件
+		if root == nil {
+			return
+		}
+		// 3. drill down 递推下探
+		recursion(root.Left)
+		recursion(root.Right)
+		// 2. 当前层逻辑
+		res = append(res, root.Val)
+	}
+	recursion(root)
 	return res
 }
