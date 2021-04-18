@@ -23,12 +23,17 @@ func climbStairs1(n int) int {
 }
 
 // 方法二：动态规划，或者叫递归+缓存
+// 本问题其实常规解法可以分成多个子问题，爬第n阶楼梯的方法：
+// 1. 从n-2阶一步爬2个台阶 或者 2. 从n-1阶爬1个台阶。那么爬n阶的走法就是这两种方法之和
+// 所以问题简化为：dp[n] = dp[n-2] + dp[n-1]
+// 也就是斐波那契数列
+// 时间复杂度：O(n)
 func climbStairs2(n int) int {
-	p, q, ans := 0, 0, 1
-	for i := 1; i <= n; i++ {
-		p = q
-		q = ans
-		ans = p + q
+	dp := make([]int, n+1)
+	dp[0] = 1
+	dp[1] = 1
+	for i := 2; i <= n; i++ {
+		dp[i] = dp[i-2] + dp[i-1]
 	}
-	return ans
+	return dp[n]
 }

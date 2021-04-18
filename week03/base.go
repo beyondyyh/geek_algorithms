@@ -9,6 +9,7 @@ import (
 
 type (
 	TreeNode = kit.TreeNode
+	ListNode = kit.ListNode
 )
 
 var (

@@ -113,3 +113,8 @@ int divide_conquer(Problem *problem, int params) { 
 |[子集](https://leetcode-cn.com/problems/subsets/)|[78.subsets.go](78.subsets.go)|M|
 |[电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)|[17.letterCombinations.go](17.letterCombinations.go)|M|
 |[N 皇后](https://leetcode-cn.com/problems/n-queens/)|[51.solveNQueens.go](51.solveNQueens.go)|H|
+|强化|-|-|
+|[从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|[105.buildTree.go](105.buildTree.go)|M|
+|[组合](https://leetcode-cn.com/problems/combinations/)|[77.combine.go](77.combine.go)|M|
+|[全排列](https://leetcode-cn.com/problems/permutations/)|[46.permute.go](46.permute.go)|M|
+|[全排列 II](https://leetcode-cn.com/problems/permutations-ii/)|[47.permuteUnique.go](47.permuteUnique.go)|M|
