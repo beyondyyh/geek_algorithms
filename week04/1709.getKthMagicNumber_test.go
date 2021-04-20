@@ -30,6 +30,6 @@ func Test_getKthMagicNumber(t *testing.T) {
 	}
 	assert := assert.New(t)
 	for _, c := range cases {
-		assert.Equal(c.expect, getKthMagicNumber(c.input), c.name)
+		assert.Equal(c.expect, getKthMagicNumber1(c.input), c.name)
 	}
 }

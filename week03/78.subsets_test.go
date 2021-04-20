@@ -59,5 +59,9 @@ func Test_subsets(t *testing.T) {
 		output3 := subsets3(c.input)
 		sortSliceAsc(output3)
 		assert.Equal(expected, output3, c.name)
+
+		output4 := subsets4(c.input)
+		sortSliceAsc(output4)
+		assert.Equal(expected, output4, c.name)
 	}
 }

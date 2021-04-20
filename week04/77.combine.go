@@ -22,12 +22,14 @@ func combine(n, k int) [][]int {
 		return res
 	}
 
-	var dfsCombine func(int, []int)
-	dfsCombine = func(start int, path []int) {
+	// 回溯思想
+	// start 下次添加到集合中的元素位置索引
+	// path  临时结果集合(每次需要复制保存)!!!
+	var backtrack func(int, []int)
+	backtrack = func(start int, path []int) {
 		// 1. terminator 递归终止条件
 		if len(path) == k {
-			// res = append(res, path) // 错误的写法。。
-			// 重点理解这里：向res结果集追加结果时最好copy一份path，不然会发生不可预知的错误
+			// 重点理解这里：向res结果集追加结果时需要copy一份path，不然会发生不可预知的错误
 			res = append(res, append([]int{}, path...))
 			return
 		}
@@ -37,13 +39,13 @@ func combine(n, k int) [][]int {
 			// 向路径里添加一个数
 			path = append(path, i)
 			// 3. drill down，递推下探
-			dfsCombine(i+1, path)
+			backtrack(i+1, path)
 			// 4. revert states，也叫回溯
 			// 重点理解这里：深度优先遍历有回头的过程，因此递归之前做了什么，递归之后需要做相同操作的逆向操作
 			path = path[:len(path)-1]
 		}
 	}
 
-	dfsCombine(1, []int{})
+	backtrack(1, []int{})
 	return res
 }
