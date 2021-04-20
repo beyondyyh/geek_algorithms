@@ -1,10 +1,5 @@
 package week03
 
-// index 就是循环到第几层
-// 逻辑：每一层选 或者 不选这个数
-// list 存储的是中间结果
-// ans 存储最终结果
-
 // 方法一：迭代法
 // 思路：先把空数组[]加到结果集res里，遍历都把之前已经放入res的子集合都拿出再追加上当前元素形成新的子集合
 // 时间复杂度：O(n * 2^n)
@@ -18,9 +13,7 @@ func subsets1(nums []int) [][]int {
 	res = append(res, []int{}) // 把空数组放入结果集
 	for _, num := range nums {
 		for _, subset := range res {
-			newset := make([]int, len(subset), len(subset)+1)
-			copy(newset, subset) // copy subset to newset
-			newset = append(newset, num)
+			newset := append(subset, num)
 			res = append(res, newset)
 		}
 	}
