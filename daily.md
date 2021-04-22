@@ -21,3 +21,5 @@
 |[19] <https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/>|[17.letterCombinations.go](./week03/17.letterCombinations.go)|
 |[20] <https://leetcode-cn.com/problems/combinations/>|[77.combine.go](./week04/77.combine.go)|
 |[21] <https://leetcode-cn.com/problems/get-kth-magic-number-lcci>|[1709.getKthMagicNumber.go](./week04/1709.getKthMagicNumber.go)|
+|[22] <https://leetcode-cn.com/problems/generate-parentheses/>|[22.generateParenthesis.go](./week04/22.generateParenthesis.go)|
+|[23] <https://leetcode-cn.com/problems/assign-cookies/description/>|[455.findContentChildren.go](./week04/455.findContentChildren.go)|
