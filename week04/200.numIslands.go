@@ -13,7 +13,7 @@ package week04
 // 输出：1
 // @leetcode: https://leetcode-cn.com/problems/number-of-islands
 
-// 方法一：回溯
+// 方法一：深度优先搜索
 // 时间复杂度：O(m*n) m,n分别为行和列
 // 空间复杂度：O(m*n)，在最坏情况下，整个网格均为陆地，深度优先搜索的深度达到m*n
 func numIslands(grid [][]byte) int {

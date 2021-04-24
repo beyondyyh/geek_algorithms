@@ -22,4 +22,6 @@
 |[20] <https://leetcode-cn.com/problems/combinations/>|[77.combine.go](./week04/77.combine.go)|
 |[21] <https://leetcode-cn.com/problems/get-kth-magic-number-lcci>|[1709.getKthMagicNumber.go](./week04/1709.getKthMagicNumber.go)|
 |[22] <https://leetcode-cn.com/problems/generate-parentheses/>|[22.generateParenthesis.go](./week04/22.generateParenthesis.go)|
-|[23] <https://leetcode-cn.com/problems/assign-cookies/description/>|[455.findContentChildren.go](./week04/455.findContentChildren.go)|
+|[23] <https://leetcode-cn.com/problems/assign-cookies/>|[455.findContentChildren.go](./week04/455.findContentChildren.go)|
+|[24] <https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/>|[122.maxProfit.go](./week04/122.maxProfit.go)|
+|[25] <https://leetcode-cn.com/problems/lemonade-change/description/>|[860.lemonadeChange.go](./week04/860.lemonadeChange.go)|S|

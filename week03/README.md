@@ -141,22 +141,22 @@ func backtrack(选择列表, 路径) {
 
 ## 练习题
 
-| Title | Code | <span id="Top">Difficulty</span> |
-| ----- | ---- | -------------------------------- |
-|[爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)|[70.climbStairs.go](70.climbStairs.go)|S|
-|[括号生成](https://leetcode-cn.com/problems/generate-parentheses/)|[22.generateParenthesis.go](22.generateParenthesis.go)|M|
-|[翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/description/)|[226.invertTree.go](226.invertTree.go)|S|
-|[验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)|[98.isValidBST.go](98.isValidBST.go)|M|
-|[二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)|[104.maxDepth.go](104.maxDepth.go)|S|
-|[Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)|[50.myPow.go](50.myPow.go)|M|
-|[从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|[105.buildTree.go](105.buildTree.go)|M|
-|**回溯思想专项练习**|-|-|
-|[子集](https://leetcode-cn.com/problems/subsets/)|[78.subsets.go](78.subsets.go)|M|
-|[电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)|[17.letterCombinations.go](17.letterCombinations.go)|M|
-|[子集II](https://leetcode-cn.com/problems/subsets-ii/)|[90.subsetsWithDup.go](../week04/90.subsetsWithDup.go)|M|
-|[组合](https://leetcode-cn.com/problems/combinations/)|[77.combine.go](../week04/77.combine.go)|M|
-|[组合总和](https://leetcode-cn.com/problems/combination-sum/)|[39.combinationSum.go](../week04/39.combinationSum.go)|M|
-|[全排列](https://leetcode-cn.com/problems/permutations/)|[46.permute.go](../week04/46.permute.go)|M|
-|[全排列 II](https://leetcode-cn.com/problems/permutations-ii/)|[47.permuteUnique.go](../week04/47.permuteUnique.go)|M|
-|[复原 IP 地址](https://leetcode-cn.com/problems/restore-ip-addresses/)|[93.restoreIpAddresses.go](../week04/93.restoreIpAddresses.go)|M|
-|[N 皇后](https://leetcode-cn.com/problems/n-queens/)|[51.solveNQueens.go](51.solveNQueens.go)|H|
+| Title | Code | <span id="Top">Difficulty</span> | Points |
+| ----- | ---- | -------------------------------- |--------|
+|[爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)|[70.climbStairs.go](70.climbStairs.go)|S|递归+缓存|
+|[括号生成](https://leetcode-cn.com/problems/generate-parentheses/)|[22.generateParenthesis.go](22.generateParenthesis.go)|M|泛型递归|
+|[翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/description/)|[226.invertTree.go](226.invertTree.go)|S|树的递归|
+|[验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)|[98.isValidBST.go](98.isValidBST.go)|M|树的递归|
+|[二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)|[104.maxDepth.go](104.maxDepth.go)|S|树的递归|
+|[Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)|[50.myPow.go](50.myPow.go)|M|树的递归|
+|[从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|[105.buildTree.go](105.buildTree.go)|M|树的递归|
+|回溯思想专项练习|-|-|
+|[子集](https://leetcode-cn.com/problems/subsets/)|[78.subsets.go](78.subsets.go)|M|回溯|
+|[电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)|[17.letterCombinations.go](17.letterCombinations.go)|M|回溯|
+|[子集II](https://leetcode-cn.com/problems/subsets-ii/)|[90.subsetsWithDup.go](../week04/90.subsetsWithDup.go)|M|回溯|
+|[组合](https://leetcode-cn.com/problems/combinations/)|[77.combine.go](../week04/77.combine.go)|M|回溯|
+|[组合总和](https://leetcode-cn.com/problems/combination-sum/)|[39.combinationSum.go](../week04/39.combinationSum.go)|M|回溯|
+|[全排列](https://leetcode-cn.com/problems/permutations/)|[46.permute.go](../week04/46.permute.go)|M|回溯|
+|[全排列 II](https://leetcode-cn.com/problems/permutations-ii/)|[47.permuteUnique.go](../week04/47.permuteUnique.go)|M|回溯|
+|[复原 IP 地址](https://leetcode-cn.com/problems/restore-ip-addresses/)|[93.restoreIpAddresses.go](../week04/93.restoreIpAddresses.go)|M|回溯|
+|[N 皇后](https://leetcode-cn.com/problems/n-queens/)|[51.solveNQueens.go](51.solveNQueens.go)|H|回溯|

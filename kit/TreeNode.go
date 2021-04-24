@@ -66,9 +66,9 @@ func Tree2BFS(root *TreeNode) []int {
 //------------------------------------------------------------//
 // 递归四部曲：                                                 //
 // 1. terminator                 终结者                        //
-// 2. process current logic     处理当前层逻辑                  //
+// 2. process current logic      处理当前层逻辑                 //
 // 3. dirll down                 向下进入下层逻辑               //
-// 4. restore current status     恢复当前层状态                 //
+// 4. restvert current status    恢复当前层状态                 //
 //------------------------------------------------------------//
 
 // Preorder 前序遍历 根->左->右

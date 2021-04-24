@@ -1,7 +1,5 @@
 package week03
 
-import "fmt"
-
 // 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
 // 示例 1：
 // 输入：head = [1,3,2]
@@ -35,14 +33,14 @@ func reversePrint2(head *ListNode) []int {
 	recursion = func(ln *ListNode) {
 		// terminator 递归终止条件，走到链表尾部count即是链表的长度
 		if ln == nil {
-			fmt.Printf("--size:%d\n", size)
+			// fmt.Printf("--size:%d\n", size)
 			res = make([]int, size)
 			return
 		}
 		size++
 		recursion(ln.Next)
 		res[i] = ln.Val
-		fmt.Printf("i:%d size:%d res:%+v\n", i, size, res)
+		// fmt.Printf("i:%d size:%d res:%+v\n", i, size, res)
 		i++
 	}
 	recursion(head)
