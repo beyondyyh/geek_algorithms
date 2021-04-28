@@ -24,4 +24,6 @@
 |[22] <https://leetcode-cn.com/problems/generate-parentheses/>|[22.generateParenthesis.go](./week04/22.generateParenthesis.go)|
 |[23] <https://leetcode-cn.com/problems/assign-cookies/>|[455.findContentChildren.go](./week04/455.findContentChildren.go)|
 |[24] <https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/>|[122.maxProfit.go](./week04/122.maxProfit.go)|
-|[25] <https://leetcode-cn.com/problems/lemonade-change/description/>|[860.lemonadeChange.go](./week04/860.lemonadeChange.go)|S|
+|[25] <https://leetcode-cn.com/problems/lemonade-change//>|[860.lemonadeChange.go](./week04/860.lemonadeChange.go)|S|
+|[26] <https://leetcode-cn.com/problems/number-of-islands/>|[200.numIslands.go](./week04/200.numIslands.go)|M|
+|[27] <https://leetcode-cn.com/problems/minesweeper/>|[529.mineSweeper.go](./week04/529.mineSweeper.go)|M|
