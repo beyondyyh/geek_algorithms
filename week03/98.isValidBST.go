@@ -14,15 +14,15 @@ package week03
 // @leetcode: https://leetcode-cn.com/problems/validate-binary-search-tree
 
 func isValidBST(root *TreeNode) bool {
-	var isValid func(*TreeNode, int) bool
-	isValid = func(root *TreeNode, preVal int) bool {
+	var preVal = -1 << 63
+	var isValid func(*TreeNode) bool
+	isValid = func(root *TreeNode) bool {
 		// terminator
 		if root == nil {
 			return true
 		}
-		// fmt.Printf("val:%d, preVal:%d\n", root.Val, preVal)
 		// 访问左子树
-		if !isValid(root.Left, preVal) {
+		if !isValid(root.Left) {
 			return false
 		}
 		// 访问当前节点：如果当前节点小于等于中序遍历的前一个节点，说明不满足BST，返回 false；否则继续遍历。
@@ -31,8 +31,8 @@ func isValidBST(root *TreeNode) bool {
 		}
 		preVal = root.Val
 		// 访问右子树
-		return isValid(root.Right, preVal)
+		return isValid(root.Right)
 	}
 
-	return isValid(root, null)
+	return isValid(root)
 }

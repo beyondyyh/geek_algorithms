@@ -22,3 +22,4 @@
 |[不同路径](https://leetcode-cn.com/problems/unique-paths/)|[62.uniquePaths.go](62.uniquePaths.go)|M|DP|
 |[不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/)|[63.uniquePathsWithObstacles.go](63.uniquePathsWithObstacles.go)|M|DP|
 |[1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/)|[1143.longestCommonSubsequence.go](1143.longestCommonSubsequence.go)|M|DP|
+|[剑指 Offer 49. 丑数](https://leetcode-cn.com/problems/chou-shu-lcof/)|[49.nthUglyNumber.go](49.nthUglyNumber.go)|M|DP|

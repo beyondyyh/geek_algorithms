@@ -27,3 +27,6 @@
 |[25] <https://leetcode-cn.com/problems/lemonade-change//>|[860.lemonadeChange.go](./week04/860.lemonadeChange.go)|S|
 |[26] <https://leetcode-cn.com/problems/number-of-islands/>|[200.numIslands.go](./week04/200.numIslands.go)|M|
 |[27] <https://leetcode-cn.com/problems/minesweeper/>|[529.mineSweeper.go](./week04/529.mineSweeper.go)|M|
+|[28] <https://leetcode-cn.com/problems/majority-element/>|[169.majorityElement.go](./week05/169.majorityElement.go)|S|
+|[29] <https://leetcode-cn.com/problems/word-ladder/>|[127.ladderLength.go](./week05/127.ladderLength.go)|H|
+|[30] <https://leetcode-cn.com/problems/two-sum/>|[1.twoSum.go](./week05/1.twoSum.go)|S|

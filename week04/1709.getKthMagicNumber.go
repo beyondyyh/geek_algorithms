@@ -1,6 +1,8 @@
 package week04
 
-import "sort"
+import (
+	"sort"
+)
 
 // 有些数的素因子只有 3，5，7，请设计一个算法找出第 k 个数。注意，不是必须有这些素因子，而是必须不包含其他的素因子。例如，前几个数按顺序应该是 1，3，5，7，9，15，21。
 // 示例 1:
@@ -36,7 +38,31 @@ func getKthMagicNumber1(k int) int {
 	return dp[k-1]
 }
 
-// 方法二：小顶堆
+// 方法二：动态规划
+// DP状态定义：dp[i]表示第i个数
+// DP方程：dp[i] = min(dp[a]*3, dp[b]*5, dp[c]*7)
 func getKthMagicNumber2(k int) int {
-	return 0
+	min := func(a, b int) int {
+		if a < b {
+			return a
+		}
+		return b
+	}
+
+	dp := make([]int, k)
+	dp[0] = 1
+	var a, b, c int // default is 0
+	for i := 1; i < k; i++ {
+		n3, n5, n7 := dp[a]*3, dp[b]*5, dp[c]*7
+		dp[i] = min(min(n3, n5), n7)
+		switch dp[i] {
+		case n3:
+			a++
+		case n5:
+			b++
+		case n7:
+			c++
+		}
+	}
+	return dp[k-1]
 }
