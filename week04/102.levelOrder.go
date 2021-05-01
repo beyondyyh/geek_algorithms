@@ -28,10 +28,9 @@ func levelOrder1(root *TreeNode) [][]int {
 	}
 	res := [][]int{}
 	for !q.IsEmpty() {
-		n := q.Len()
-		level := []int{}
-		for i := 0; i < n; i++ {
-			node := q.Pop().(*TreeNode)
+		n, level := q.Len(), []int{}
+		for i := 0; i < n; i++ { // 注意：这里一定要使用固定大小size，不要使用q.Len()，因为q.Len()是不断变化的
+			node := q.Pop().(*TreeNode) // 依次将当前level的节点处队列，同时将当前leve层的节点的 左右子节点再入队列
 			level = append(level, node.Val)
 			if node.Left != nil {
 				q.Push(node.Left)
@@ -53,12 +52,14 @@ func levelOrder2(root *TreeNode) [][]int {
 
 	var bfs func(*TreeNode, int)
 	bfs = func(node *TreeNode, level int) {
+		// level与当前保存的结果集里索引相等，初始当前level为一个空slice
 		if len(res) == level {
 			res = append(res, []int{})
 		}
+		// 当前level层的节点值入结果集里对应索引的子数组
 		res[level] = append(res[level], node.Val)
-		// fmt.Printf("level:%d res:%+v\n", level, res)
 
+		// fmt.Printf("level:%d res:%+v\n", level, res)
 		if node.Left != nil {
 			bfs(node.Left, level+1)
 		}

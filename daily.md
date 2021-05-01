@@ -30,3 +30,4 @@
 |[28] <https://leetcode-cn.com/problems/majority-element/>|[169.majorityElement.go](./week05/169.majorityElement.go)|S|
 |[29] <https://leetcode-cn.com/problems/word-ladder/>|[127.ladderLength.go](./week05/127.ladderLength.go)|H|
 |[30] <https://leetcode-cn.com/problems/two-sum/>|[1.twoSum.go](./week05/1.twoSum.go)|S|
+|[31] <https://leetcode-cn.com/problems/walking-robot-simulation/>|[874.robotSim.go](874.robotSim.go)|S|
