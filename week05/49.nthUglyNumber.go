@@ -18,7 +18,7 @@ func nthUglyNumber(n int) int {
 		return y
 	}
 
-	var a, b, c int // 0
+	var a, b, c int // default is 0
 	dp := make([]int, n)
 	dp[0] = 1 // 第一个丑数
 	for i := 1; i < n; i++ {

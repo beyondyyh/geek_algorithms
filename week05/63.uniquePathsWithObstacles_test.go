@@ -41,8 +41,8 @@ func Test_uniquePathsWithObstacles(t *testing.T) {
 	}
 	assert := assert.New(t)
 	for _, c := range cases {
-		assert.Equal(c.expect, uniquePathsWithObstacles(c.input), c.name)
-		assert.Equal(c.expect, uniquePathsWithObstacles1(c.input), c.name)
-		assert.Equal(c.expect, uniquePathsWithObstacles2(c.input), c.name)
+		assert.Equal(c.expect, uniquePathsWithObstacles1(c.input), "func1->"+c.name)
+		assert.Equal(c.expect, uniquePathsWithObstacles2(c.input), "func2->"+c.name)
+		assert.Equal(c.expect, uniquePathsWithObstacles3(c.input), "func3->"+c.name)
 	}
 }

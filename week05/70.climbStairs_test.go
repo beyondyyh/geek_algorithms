@@ -20,13 +20,14 @@ func Test_climbStairs(t *testing.T) {
 		},
 		{
 			name:   "x2",
-			input:  3,
-			expect: 3,
+			input:  5,
+			expect: 8,
 		},
 	}
 	assert := assert.New(t)
 	for _, c := range cases {
-		assert.Equal(c.expect, climbStairs1(c.input), c.name)
-		assert.Equal(c.expect, climbStairs2(c.input), c.name)
+		assert.Equal(c.expect, climbStairs1(c.input), "climbStairs1->"+c.name)
+		assert.Equal(c.expect, climbStairs2(c.input), "climbStairs2->"+c.name)
+		assert.Equal(c.expect, climbStairs3(c.input), "climbStairs3->"+c.name)
 	}
 }

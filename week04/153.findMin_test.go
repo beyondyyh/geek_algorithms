@@ -31,6 +31,6 @@ func Test_findMin(t *testing.T) {
 	}
 	assert := assert.New(t)
 	for _, c := range cases {
-		assert.Equal(c.expect, findMin(c.input), c.name)
+		assert.Equal(c.expect, findMin1(c.input), c.name)
 	}
 }

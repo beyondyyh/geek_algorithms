@@ -10,8 +10,8 @@ package week05
 
 // 方法一：自顶向下 DP 搜索
 // 状态定义：dp[i][j]表示走到格子(i,j)的方法数
-// DP方程：dp[i][j] = dp[i][j+1] + dp[i+1][j]
-// 当前位置(i,)只能是从上边或左边走过的，dp[i][j]表示：从“Start”位置走到(i,j)位置的不同路径数，dp[m-1][n-1]是最终结果
+// DP方程：dp[i][j] = dp[i-1][j] + dp[i][j-1]
+// 当前位置(i,j)只能是从上边或左边走过的，dp[i][j]表示：从“Start”位置走到(i,j)位置的不同路径数，dp[m-1][n-1]是最终结果
 // 时间复杂度：O(m * n)
 func uniquePaths1(m int, n int) int {
 	// 1. 初始化m x n的网格，第一列和第一行初始化为1，因为从“Start”只有一种方式能到达此处
@@ -24,7 +24,7 @@ func uniquePaths1(m int, n int) int {
 		dp[0][j] = 1
 	}
 
-	// 2. 自顶向底，根据DP方程 dp[i][j] = dp[i-1][j] + dp[i][j-1] 进行递推
+	// 2. 自顶向底，状态定义：dp[i][j]表示从“Start”走到位置i,j的路径数，根据DP方程 dp[i][j] = dp[i-1][j] + dp[i][j-1] 进行递推
 	for i := 1; i < m; i++ {
 		for j := 1; j < n; j++ {
 			dp[i][j] = dp[i-1][j] + dp[i][j-1]
@@ -34,7 +34,7 @@ func uniquePaths1(m int, n int) int {
 	return dp[m-1][n-1]
 }
 
-// 方法二：DP搜索，自底向上
+// 方法二：DP搜索，自底向上Bottom-up
 // 状态定义：dp[i][j]表示从格子(i,j)走到“Finished”的方法数
 // DP方程：dp[i][j] = dp[i+1][j] + dp[i][j+1]
 // 当前位置(i,j)只能往右走或往下走，dp[i][j]表示：从当前位置(i,j)走到“Finished”位置的不同路径数，dp[0][0]是最终结果

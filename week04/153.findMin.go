@@ -14,7 +14,7 @@ package week04
 // 二分查找法
 // 时间复杂度：O(log(n))
 // 空间复杂度：O(1)
-func findMin(nums []int) int {
+func findMin1(nums []int) int {
 	left, right := 0, len(nums)-1 // 左闭右闭区间，如果用右开区间则不方便判断右值
 	for left < right {            // 循环不变式，如果left == right，则循环结束
 		mid := left + (right-left)/2 // 地板除，mid更靠近left，因为要找最小值，这是旋转前升序数组，所以最小值肯定是某个区间内偏向左找

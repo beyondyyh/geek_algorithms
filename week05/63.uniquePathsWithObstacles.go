@@ -16,12 +16,52 @@ import "fmt"
 // 2. 向下 -> 向下 -> 向右 -> 向右
 // @leetcode: https://leetcode-cn.com/problems/unique-paths-ii
 
+// 斐波那契：fib(n) = fib(n-1) + fib(n-2)
+// 不需要二维数组，一维即可，由第一二行递推第三行，。。
+func uniquePathsWithObstacles1(obstacleGrid [][]int) int {
+	m, n := len(obstacleGrid), len(obstacleGrid[0])
+	dp := make([]int, n+1)
+	dp[1] = 1
+	for i := 0; i < m; i++ {
+		for j := 1; j <= n; j++ { // 注意：j从1开始
+			if obstacleGrid[i][j-1] == 1 { // 障碍物
+				dp[j] = 0
+			} else {
+				dp[j] += dp[j-1] // 上一行的dp[j]直接被传下来了
+			}
+		}
+	}
+	return dp[n]
+}
+
+// 好理解吗？？？
+func uniquePathsWithObstacles2(obstacleGrid [][]int) int {
+	m, n := len(obstacleGrid), len(obstacleGrid[0])
+	dp := make([]int, n)
+	if obstacleGrid[0][0] == 0 {
+		dp[0] = 1
+	}
+
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if obstacleGrid[i][j] == 1 {
+				dp[j] = 0
+				continue
+			}
+			if j-1 >= 0 && obstacleGrid[i][j-1] == 0 {
+				dp[j] += dp[j-1]
+			}
+		}
+	}
+	return dp[len(dp)-1]
+}
+
 // 动态规划：自顶向底
 // 状态定义：dp[i][j]表示走到格子(i,j)的方法数
 // DP方程：dp[i][j] = dp[i-1][j] + dp[i][j-1]
 // dp[i][j]表示到达位置(i,j)的不同路径数，只有2中走法，从上面下来dp[i-1][j] 或 从左边过去dp[i][j-1]
 // 障碍物：到达它的路径数=0，即它不能给其他点贡献路径数
-func uniquePathsWithObstacles(obstacleGrid [][]int) int {
+func uniquePathsWithObstacles3(obstacleGrid [][]int) int {
 	if len(obstacleGrid) == 0 || len(obstacleGrid[0]) == 0 {
 		return 0
 	}
@@ -57,44 +97,4 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 
 	// 3. result
 	return dp[m-1][n-1]
-}
-
-// 好理解吗？？？
-func uniquePathsWithObstacles1(obstacleGrid [][]int) int {
-	m, n := len(obstacleGrid), len(obstacleGrid[0])
-	dp := make([]int, n)
-	if obstacleGrid[0][0] == 0 {
-		dp[0] = 1
-	}
-
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if obstacleGrid[i][j] == 1 {
-				dp[j] = 0
-				continue
-			}
-			if j-1 >= 0 && obstacleGrid[i][j-1] == 0 {
-				dp[j] += dp[j-1]
-			}
-		}
-	}
-	return dp[len(dp)-1]
-}
-
-// 斐波那契：fib(n) = fib(n-1) + fib(n-2)
-// 不需要二维数组，一维即可，由第一二行递推第三行，。。
-func uniquePathsWithObstacles2(obstacleGrid [][]int) int {
-	m, n := len(obstacleGrid), len(obstacleGrid[0])
-	dp := make([]int, n+1)
-	dp[1] = 1
-	for i := 0; i < m; i++ {
-		for j := 1; j <= n; j++ {
-			if obstacleGrid[i][j-1] == 1 { // 障碍物
-				dp[j] = 0
-			} else {
-				dp[j] += dp[j-1] // 上一行的dp[j]直接被传下来了
-			}
-		}
-	}
-	return dp[n]
 }

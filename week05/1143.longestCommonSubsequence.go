@@ -23,10 +23,9 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 		}
 		return b
 	}
-
 	// 1. 初始化(m+1)*(n+1)的二维数组
 	dp := make([][]int, m+1)
-	for i := 0; i < m; i++ {
+	for i := 0; i < m+1; i++ {
 		dp[i] = make([]int, n+1)
 	}
 	// 2. 根据DP方程递推
