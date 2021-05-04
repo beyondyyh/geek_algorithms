@@ -8,8 +8,8 @@
 
 ## 动态规划的关键点
 
-- 最优子结构 dp[n] = best_of(dp[n-1], dp[n-2])，第n步的值是前面几个值的最佳值（可能是累加、最大、最小等）
-- 存储中间状态 dp[i]
+- 最优子结构，找到子问题 dp[n] = best_of(dp[n-1], dp[n-2])，第n步的值是前面几个值的最佳值（可能是累加、最大、最小等）
+- 存储中间状态，即定义dp状态数组 dp[i]
 - 递推公式（美其名曰：状态转移方程或DP方程）
   - Fibnacci：dp[n] = dp[n-1] + dp[n-2]
   - 二维路径
@@ -34,3 +34,6 @@
 |[剑指 Offer 49. 丑数](https://leetcode-cn.com/problems/chou-shu-lcof/)|[49.nthUglyNumber.go](49.nthUglyNumber.go)|M|DP|
 |[120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)|[120.minimumTotal.go](120.minimumTotal.go)|M|DP|
 |[53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)|[53.maxSubArray.go](53.maxSubArray.go)|S|DP|
+|[152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)|[152.maxProduct.go](152.maxProduct.go)|M|DP|
+|[322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)|[322.coinChange.go](322.coinChange.go)|M|DP|
+|[198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)|[198.rob.go](198.rob.go)|M|DP|

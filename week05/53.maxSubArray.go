@@ -14,6 +14,7 @@ import "sort"
 // DP状态数组定义：dp[i]
 // DP状态转移方程：dp[i] = max(0, dp[i-1]) + nums[i]
 // 最大子序和 = 当前元素最大，或者 包含之前最大元素+自身后最大
+// dp[i-1] 表示之前的子序列和，如果<0就不用，从0开始加上自己
 func maxSubArray(nums []int) int {
 	dp := make([]int, len(nums))
 	copy(dp, nums)

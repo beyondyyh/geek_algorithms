@@ -21,6 +21,9 @@ func Test_minimumTotal(t *testing.T) {
 	}
 	assert := assert.New(t)
 	for _, c := range cases {
-		assert.Equal(c.expect, minimumTotal1(c.input), c.name)
+		assert.Equal(c.expect, minimumTotal1(c.input), "minimumTotal1->"+c.name)
+		assert.Equal(c.expect, minimumTotal2(c.input), "minimumTotal2->"+c.name)
+		assert.Equal(c.expect, minimumTotal3(c.input), "minimumTotal3->"+c.name)
+		// assert.Equal(c.expect, minimumTotal4(c.input), "minimumTotal4->"+c.name)
 	}
 }

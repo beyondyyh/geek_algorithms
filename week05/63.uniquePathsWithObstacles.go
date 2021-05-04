@@ -16,6 +16,7 @@ import "fmt"
 // 2. 向下 -> 向下 -> 向右 -> 向右
 // @leetcode: https://leetcode-cn.com/problems/unique-paths-ii
 
+// 方法一：动态规划，一位数组
 // 斐波那契：fib(n) = fib(n-1) + fib(n-2)
 // 不需要二维数组，一维即可，由第一二行递推第三行，。。
 func uniquePathsWithObstacles1(obstacleGrid [][]int) int {
