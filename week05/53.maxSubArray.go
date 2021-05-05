@@ -15,15 +15,10 @@ import "sort"
 // DP状态转移方程：dp[i] = max(0, dp[i-1]) + nums[i]
 // 最大子序和 = 当前元素最大，或者 包含之前最大元素+自身后最大
 // dp[i-1] 表示之前的子序列和，如果<0就不用，从0开始加上自己
+// 时间复杂度：O(n)
 func maxSubArray(nums []int) int {
 	dp := make([]int, len(nums))
 	copy(dp, nums)
-	max := func(a, b int) int {
-		if a > b {
-			return a
-		}
-		return b
-	}
 	for i := 1; i < len(nums); i++ {
 		dp[i] = max(0, dp[i-1]) + nums[i]
 	}
