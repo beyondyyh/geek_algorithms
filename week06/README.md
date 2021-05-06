@@ -14,6 +14,8 @@
 
 | Title | Code | <span id="Top">Difficulty</span> | Points |
 | ----- | ---- | -------------------------------- |--------|
+|[15. 三数之和](https://leetcode-cn.com/problems/3sum/)|[15.threeSum.go](15.threeSum.go)|M|回溯、双指针、Nsum通用解法|
+|[18. 四数之和](https://leetcode-cn.com/problems/4sum/)|[18.fourSum.go](18.fourSum.go)|M|回溯、双指针、Nsum通用解法|
 |[198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)|[198.rob.go](198.rob.go)|M|DP、升维、滚动数组|
 |[213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii/)|[213.robII.go](213.robII.go)|M|DP、滚动数组|
 |[121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)|[121.maxProfit.go](121.maxProfit.go)|S|递归、DP、升维、滚动数组|
