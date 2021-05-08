@@ -1,7 +1,5 @@
 package week05
 
-import "fmt"
-
 // 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
 // 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
 // 现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？
@@ -70,7 +68,6 @@ func uniquePathsWithObstacles3(obstacleGrid [][]int) int {
 	// 1. 定义 dp 数组并初始化第 1 行和第 1 列
 	m, n := len(obstacleGrid), len(obstacleGrid[0])
 	dp := make([][]int, m)
-	fmt.Printf("%+v\n", dp)
 	// 按行数初始化第一列的值
 	for i := 0; i < m; i++ {
 		dp[i] = make([]int, n)
@@ -84,12 +81,10 @@ func uniquePathsWithObstacles3(obstacleGrid [][]int) int {
 	for j := 1; j < n; j++ {
 		dp[0][j] = dp[0][j-1]
 	}
-	fmt.Printf("m:%d n:%d init:%+v\n", m, n, dp)
 
 	// 2. 根据状态转移方程 dp[i][j] = dp[i-1][j] + dp[i][j-1] 进行递推
 	for i := 1; i < m; i++ {
 		for j := 1; j < n; j++ {
-			fmt.Printf("i:%d j:%d dp:%+v\n", i, j, dp)
 			if obstacleGrid[i][j] == 0 {
 				dp[i][j] = dp[i-1][j] + dp[i][j-1]
 			}

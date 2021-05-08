@@ -44,6 +44,7 @@ func Test_longestCommonSubsequence(t *testing.T) {
 	}
 	assert := assert.New(t)
 	for _, c := range cases {
-		assert.Equal(c.expect, longestCommonSubsequence(c.input.text1, c.input.text2), c.name)
+		assert.Equal(c.expect, longestCommonSubsequence1(c.input.text1, c.input.text2), c.name)
+		assert.Equal(c.expect, longestCommonSubsequence2(c.input.text1, c.input.text2), c.name)
 	}
 }

@@ -1,13 +1,14 @@
 package week01
 
 import (
-	"reflect"
 	"testing"
 
 	"beyondyyh/geek_algorithms/kit"
+
+	"github.com/stretchr/testify/assert"
 )
 
-// run: go test -run Test_mergeTwoSortedLists
+// run: go test -v -run Test_mergeTwoSortedLists
 func Test_mergeTwoSortedLists(t *testing.T) {
 	cases := []struct {
 		name     string
@@ -30,16 +31,13 @@ func Test_mergeTwoSortedLists(t *testing.T) {
 			expected: []int{1, 2, 3, 4, 5, 6, 7, 8},
 		},
 	}
-
+	assert := assert.New(t)
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
 			l1 := kit.Ints2List(c.input[0])
 			l2 := kit.Ints2List(c.input[1])
-			output := mergeTwoLists(l1, l2)
-			out2ints := kit.List2Ints(output)
-			if !reflect.DeepEqual(out2ints, c.expected) {
-				t.Errorf("mergeTwoLists(%v, %v)=%v, expected=%v", c.input[0], c.input[1], out2ints, c.expected)
-			}
+			// assert.Equal(c.expected, kit.List2Ints(mergeTwoLists1(l1, l2)), "mergeTwoLists1->"+c.name)
+			assert.Equal(c.expected, kit.List2Ints(mergeTwoLists2(l1, l2)), "mergeTwoLists2->"+c.name)
 		})
 	}
 }

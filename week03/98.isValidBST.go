@@ -1,5 +1,7 @@
 package week03
 
+import "math"
+
 // 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
 // 假设一个二叉搜索树具有如下特征：
 // 节点的左子树只包含小于当前节点的数。
@@ -14,7 +16,7 @@ package week03
 // @leetcode: https://leetcode-cn.com/problems/validate-binary-search-tree
 
 func isValidBST(root *TreeNode) bool {
-	var preVal = -1 << 63
+	preVal := math.MinInt32
 	var isValid func(*TreeNode) bool
 	isValid = func(root *TreeNode) bool {
 		// terminator

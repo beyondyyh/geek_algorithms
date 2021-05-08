@@ -33,7 +33,7 @@ func Test_buildTree(t *testing.T) {
 		output1 := kit.Tree2BFS(buildTree(c.input.preorder, c.input.inorder))
 		assert.Equal(c.expect, output1, c.name)
 
-		output2 := kit.Tree2BFS(buildTree1(c.input.preorder, c.input.inorder))
-		assert.Equal(c.expect, output2, c.name)
+		// output2 := kit.Tree2BFS(buildTree1(c.input.preorder, c.input.inorder))
+		// assert.Equal(c.expect, output2, c.name)
 	}
 }

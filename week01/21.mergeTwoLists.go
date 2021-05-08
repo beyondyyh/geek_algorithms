@@ -11,7 +11,7 @@ package week01
 // 直到其中一个链表走完，然后将剩下一个还未走完的链表直接追加给 sortedList 即可
 // 时间复杂度：O(n)
 // 空间复杂度：O(1)
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+func mergeTwoLists1(l1 *ListNode, l2 *ListNode) *ListNode {
 	dummy := &ListNode{Val: -1} // 哑结点，链表里通用解法，可以巧妙的避免各种边界值情况
 	curr := dummy
 	for l1 != nil && l2 != nil {
@@ -33,4 +33,21 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 		curr.Next = l2
 	}
 	return dummy.Next // 哑结点
+}
+
+// 方法二：递归
+func mergeTwoLists2(l1 *ListNode, l2 *ListNode) *ListNode {
+	if l1 == nil {
+		return l2
+	}
+	if l2 == nil {
+		return l1
+	}
+	if l1.Val < l2.Val {
+		l1.Next = mergeTwoLists2(l1.Next, l2)
+		return l1
+	} else {
+		l2.Next = mergeTwoLists2(l1, l2.Next)
+		return l2
+	}
 }
