@@ -53,15 +53,18 @@ todos
 
 ## 练习题
 
-| Title | Code | <span id="Top">Difficulty</span> |
-| ----- | ---- | -------------------------------- |
-[删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)|[26.removeDuplicates.go](26.removeDuplicates.go)|S|
-[旋转数组](https://leetcode-cn.com/problems/rotate-array/)|[189.rotate.go](189.rotate.go)|S|
-[合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)|[21.mergeTwoLists.go](21.mergeTwoLists.go)|S|
-[合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)|[88.merge.go](88.merge.go)|S|
-[两数之和](https://leetcode-cn.com/problems/two-sum/)|[1.twoSum.go](1.twoSum.go)|S|
-[移动零](https://leetcode-cn.com/problems/move-zeroes/)|[283.moveZeroes.go](283.moveZeroes.go)|S|
-[加一](https://leetcode-cn.com/problems/plus-one/)|[66.plusOne.go](66.plusOne)|S|
-[设计双端循环队列](https://leetcode-cn.com/problems/design-circular-deque/)|[641.MyCircularDeque.go](641.MyCircularDeque.go)|M|
-[有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)|[20.isValid.go](20.isValid.go)|S|
-[最小栈](https://leetcode-cn.com/problems/min-stack/)|[155.minStack.go](155.minStack.go)|S|
+| Title | Code | <span id="Top">Difficulty</span> | Points |
+| ----- | ---- | -------------------------------- | ------ |
+[1. 两数之和](https://leetcode-cn.com/problems/two-sum/)|[1.twoSum.go](1.twoSum.go)|S|hashmap、diff递减|
+[20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)|[20.isValid.go](20.isValid.go)|S|栈|
+[21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)|[21.mergeTwoLists.go](21.mergeTwoLists.go)|S|递归、双指针|
+[23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)|[23.mergeKLists.go](23.mergeKLists.go)|H|小根堆、优先队列|
+[24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)|[24.swapPairs.go](24.swapPairs.go)|M|递归、迭代|
+[26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)|[26.removeDuplicates.go](26.removeDuplicates.go)|S|双指针|
+[61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/)|[61.rotateRight.go](61.rotateRight.go)|M|双指针、取模|
+[66. 加一](https://leetcode-cn.com/problems/plus-one/)|[66.plusOne.go](66.plusOne)|S|x|
+[88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)|[88.merge.go](88.merge.go)|S|双指针|
+[155. 最小栈](https://leetcode-cn.com/problems/min-stack/)|[155.minStack.go](155.minStack.go)|S|辅助栈|
+[189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/)|[189.rotate.go](189.rotate.go)|S|取模、交换|
+[283. 移动零](https://leetcode-cn.com/problems/move-zeroes/)|[283.moveZeroes.go](283.moveZeroes.go)|S|双指针、快排思想|
+[641. 设计双端循环队列](https://leetcode-cn.com/problems/design-circular-deque/)|[641.MyCircularDeque.go](641.MyCircularDeque.go)|M|双链表|

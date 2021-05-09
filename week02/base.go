@@ -3,12 +3,12 @@ package week02
 import "beyondyyh/geek_algorithms/kit"
 
 type (
-	MaxHeap       = kit.MaxHeap
-	MinHeap       = kit.MinHeap
-	TreeNode      = kit.TreeNode
-	Item          = kit.Item
-	PriorityQueue = kit.PriorityQueue
-	Stack         = kit.Stack
+	MaxHeap  = kit.MaxHeap
+	MinHeap  = kit.MinHeap
+	TreeNode = kit.TreeNode
+	// Item          = kit.Item
+	// PriorityQueue = kit.PriorityQueue
+	Stack = kit.Stack
 )
 
 var (

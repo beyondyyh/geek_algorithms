@@ -1,5 +1,7 @@
 package kit
 
+import "sort"
+
 // MinHeap int数组实现大顶堆
 type MaxHeap []int
 
@@ -63,5 +65,44 @@ func (h *MinHeap) Pop() interface{} {
 // Peek 只查看堆顶元素，不改变堆的结构
 func (h *MinHeap) Peek() interface{} {
 	x := (*h)[h.Len()-1]
+	return x
+}
+
+// ------------------------------------------------------------------------------------------------------------
+// 使用标准库的 sort.IntSlice 实现堆数据结构（优先队列），标准库已经实现了排序相关的 `Len,Less,Swap` 接口，不过默认是升序也就是小顶堆
+// 因此只需要实现 container/heap 接口的 `Push,Pop` 方法即可
+type IMinHeap struct{ sort.IntSlice }
+
+// 注意：Push、Pop的receiver需要是指针
+func (h *IMinHeap) Push(x interface{}) {
+	h.IntSlice = append(h.IntSlice, x.(int))
+}
+
+func (h *IMinHeap) Pop() interface{} {
+	old := h.IntSlice
+	n := h.IntSlice.Len()
+	x := old[n-1]
+	h.IntSlice = h.IntSlice[:n-1]
+	return x
+}
+
+// 大顶堆
+type IMaxHeap struct{ sort.IntSlice }
+
+// 默认是小顶堆，重写 Less 方法
+func (h IMaxHeap) Less(i, j int) bool {
+	return h.IntSlice[i] > h.IntSlice[j]
+}
+
+// 注意：Push、Pop的receiver需要是指针
+func (h *IMaxHeap) Push(x interface{}) {
+	h.IntSlice = append(h.IntSlice, x.(int))
+}
+
+func (h *IMaxHeap) Pop() interface{} {
+	old := h.IntSlice
+	n := h.IntSlice.Len()
+	x := old[n-1]
+	h.IntSlice = h.IntSlice[:n-1]
 	return x
 }

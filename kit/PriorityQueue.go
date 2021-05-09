@@ -32,7 +32,7 @@ func (pq *PriorityQueue) Push(x interface{}) {
 // go源码：https://golang.org/src/container/heap/heap.go?s=2190:2223#L50
 func (pq *PriorityQueue) Pop() interface{} {
 	old := *pq
-	n := len(old)
+	n := pq.Len()
 	item := old[n-1]
 	old[n-1] = nil // 避免内存泄露
 	*pq = old[0 : n-1]

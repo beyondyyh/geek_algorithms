@@ -46,40 +46,73 @@ func max(nums []int) int {
 }
 
 // 方法二：大顶堆
-// 时间复杂度：O(NlogK)
-// 空间复杂度：
+// 时间复杂度：O(n log(n))， n为数组nums的长度，最坏情况下nums为单调递增数组，那么堆的长度会一直增加不会pop出元素，最坏达到n
+// 空间复杂度：O(n)，最坏情况下nums为单调递增数组，堆的长度为n
 func maxSlidingWindow2(nums []int, k int) []int {
 	n := len(nums)
 	if n == 0 || k == 0 {
 		return []int{}
 	}
 
-	// 初始化前K的元素到堆中
-	maxPQ := make(PriorityQueue, k)
+	// 总共会形成n-k+1个窗口，res存放结果集
+	res := make([]int, 0, n-k+1)
+
+	// 1. 先将第一个窗口内的元素初始化入堆
+	q := make(PriorityQueue, 0, k)
 	for i := 0; i < k; i++ {
-		maxPQ[i] = &Item{Index: i, Value: nums[i]}
+		item := pair{index: i, value: nums[i]}
+		q = append(q, item)
 	}
-	heap.Init(&maxPQ)
-
-	// 总共有n-k+1个窗口，声名一个长度长度&容量n-k+1的slice
-	ans := make([]int, n-k+1)
-	// 堆顶元素即是第一个窗口最大值，先放进ans
-	ans[0] = maxPQ.Peek().Value
-
-	// 遍历将剩下的元素依次入堆
+	heap.Init(&q)
+	// 将第一个窗口最大值存入结果集
+	res = append(res, q.Peek().value)
+	// 2. 遍历元素，依次入堆，并判断堆顶元素是否在当前窗口区间内，当前窗口区间下标：[i-k+1 : i] 前后都是闭区间
 	for i := k; i < n; i++ {
-		// 将新元素入堆
-		item := &Item{Index: i, Value: nums[i]}
-		heap.Push(&maxPQ, item)
-		// 循环判断当前堆顶是否在窗口中，一般思路是遍历窗口元素与堆顶进行对比，时间复杂度为O(k)
-		// 反向思维：堆顶元素已经是最大值，可以依次pop比较堆顶元素的下标是否小于窗口的左边界i-k+1，直到堆为空或者堆顶元素下标等于左边界，出栈时间复杂度O(1)
-		for maxPQ.Len() > 0 && maxPQ.Peek().Index <= i-k {
-			heap.Pop(&maxPQ)
+		item := pair{index: i, value: nums[i]}
+		heap.Push(&q, item)
+		// 他强任他强，不在当前窗口内的即便是最大值也让其滚蛋
+		for q.Peek().index <= i-k {
+			heap.Pop(&q)
 		}
-		// 在窗口中直接赋值即可
-		if maxPQ.Len() > 0 {
-			ans[i-k+1] = maxPQ.Peek().Value
-		}
+		res = append(res, q.Peek().value)
 	}
-	return ans
+	return res
+}
+
+// ---------------------------------------------------------------
+// 借助标准库 container/Heap 接口实现大顶堆（优先队列）
+type pair struct {
+	index int // 索引
+	value int // 值
+}
+
+type PriorityQueue []pair
+
+// 实现 sort接口的 Len,Less,Swap 方法
+func (pq PriorityQueue) Len() int      { return len(pq) }
+func (pq PriorityQueue) Swap(i, j int) { pq[i], pq[j] = pq[j], pq[i] }
+
+// value相同时，比较索引
+func (pq PriorityQueue) Less(i, j int) bool {
+	if pq[i].value == pq[j].value {
+		return pq[i].index > pq[j].index
+	}
+	return pq[i].value > pq[j].value
+}
+
+// 实现 container/Heap 的 Push,Pop 方法，注意：receiver是指针
+func (pq *PriorityQueue) Push(x interface{}) {
+	*pq = append(*pq, x.(pair))
+}
+
+func (pq *PriorityQueue) Pop() interface{} {
+	old := *pq
+	n := pq.Len()
+	x := old[n-1]
+	*pq = (*pq)[:n-1]
+	return x
+}
+
+func (pq PriorityQueue) Peek() pair {
+	return pq[0]
 }
