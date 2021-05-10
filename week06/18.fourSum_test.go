@@ -36,7 +36,7 @@ func Test_fourSum(t *testing.T) {
 	}
 	assert := assert.New(t)
 	for _, c := range cases {
-		assert.Equal(c.expect, fourSum1(c.input.nums, c.input.target), "fourSum1->"+c.name)
+		// assert.Equal(c.expect, fourSum1(c.input.nums, c.input.target), "fourSum1->"+c.name)
 		assert.Equal(c.expect, fourSum2(c.input.nums, c.input.target), "fourSum2->"+c.name)
 	}
 }

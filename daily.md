@@ -1,7 +1,7 @@
 **每日刷题记录**
 
-| Leetcode | Code |
-| -------- | ---- |
+| Leetcode | Code | Points |
+| -------- | ---- | ------ |
 |[03] <https://leetcode-cn.com/problems/two-sum>|[1.twoSum.go](./week01/1.twoSum.go)|
 |[04] <https://leetcode-cn.com/problems/swap-nodes-in-pairs/>|[26.swapPairs.go](./week01/26.swapPairs.go)|
 |[05] <https://leetcode-cn.com/problems/merge-two-sorted-lists/>|[21.mergeTwoLists.go](./week01/21.mergeTwoLists.go)|
@@ -31,3 +31,4 @@
 |[29] <https://leetcode-cn.com/problems/word-ladder/>|[127.ladderLength.go](./week05/127.ladderLength.go)|H|
 |[30] <https://leetcode-cn.com/problems/two-sum/>|[1.twoSum.go](./week05/1.twoSum.go)|S|
 |[31] <https://leetcode-cn.com/problems/walking-robot-simulation/>|[874.robotSim.go](874.robotSim.go)|S|
+|[36] [最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/)|[64.minPathSum.go](./week06/64.minPathSum.go)|M|dp|
