@@ -32,3 +32,5 @@
 |[30] <https://leetcode-cn.com/problems/two-sum/>|[1.twoSum.go](./week05/1.twoSum.go)|S|
 |[31] <https://leetcode-cn.com/problems/walking-robot-simulation/>|[874.robotSim.go](874.robotSim.go)|S|
 |[36] [最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/)|[64.minPathSum.go](./week06/64.minPathSum.go)|M|dp|
+|[37] [零钱兑换](https://leetcode-cn.com/problems/coin-change/)|[322.coinChange.go](./week06/322.coinChange.go)|M|递归、dp|
+|[38] [打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii/)|[213.robII.go](./week06/213.robII.go)|M|dp|

@@ -35,6 +35,11 @@ func Test_myPow(t *testing.T) {
 			input:  input{x: 2, n: -2},
 			expect: 0.25,
 		},
+		{
+			name:   "x3",
+			input:  input{x: 9, n: -3},
+			expect: 0.25,
+		},
 	}
 	for _, c := range cases {
 		output1, _ := strconv.ParseFloat(fmt.Sprintf("%.5f", myPow1(c.input.x, c.input.n)), 64)

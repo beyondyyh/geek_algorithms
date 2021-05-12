@@ -63,7 +63,7 @@ func rob2(nums []int) int {
 	}
 	// 定义dp状态数组
 	dp := make([]int, n)
-	// dp[i]存的是0..i的最大值，dp[0]：第一个房子最大值，那肯定是nums[0]；dp[i]：第1和2房子是相邻的只能偷一个，所以偷二者较大值
+	// dp[i]存的是0..i的最大值，dp[0]：第一个房子最大值，那肯定是nums[0]；dp[1]：第1和2房子是相邻的只能偷一个，所以偷二者较大值
 	dp[0], dp[1] = nums[0], max(nums[0], nums[1])
 	for i := 2; i < n; i++ {
 		dp[i] = max(dp[i-1], dp[i-2]+nums[i])
