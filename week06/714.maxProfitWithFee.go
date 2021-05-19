@@ -31,6 +31,12 @@ func maxProfitWithFee1(prices []int, fee int) int {
 	if n == 0 {
 		return 0
 	}
+	max := func(a, b int) int {
+		if a > b {
+			return a
+		}
+		return b
+	}
 	// 定义dp状态数组
 	dp := make([][2]int, n)
 	// 初始化，第一天不持股：收益0，持股：收益为负

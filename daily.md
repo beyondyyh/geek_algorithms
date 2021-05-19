@@ -34,3 +34,9 @@
 |[36] [最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/)|[64.minPathSum.go](./week06/64.minPathSum.go)|M|dp|
 |[37] [零钱兑换](https://leetcode-cn.com/problems/coin-change/)|[322.coinChange.go](./week06/322.coinChange.go)|M|递归、dp|
 |[38] [打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii/)|[213.robII.go](./week06/213.robII.go)|M|dp|
+|[39] [N 叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/)|[589.preorder](./week07/589.preorder)|S|递归、栈|
+|[40] [搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)|[33.search.go](./week07/33.search.go)|M|二分查找|
+|[42] [解码方法](https://leetcode-cn.com/problems/decode-ways)|[91.numDecodings.go](./week07/91.numDecodings.go)|M|dp|
+|[43] [买卖股票的最佳时机](121.maxProfit.go)|[121.maxProfit.go](./week07/121.maxProfit.go)|S|dp、贪心算法|
+|[44] [实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)|[208.trie.go](./week07/208.trie.go)|M|trie|
+|[45] [212. 单词搜索](https://leetcode-cn.com/problems/word-search-ii/)|[212.findWords.go](./week07/212.findWords.go)|H|dp|
