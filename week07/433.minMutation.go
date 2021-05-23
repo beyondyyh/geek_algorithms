@@ -168,15 +168,6 @@ func minMutation3(start, end string, bank []string) int {
 						continue
 					}
 					newGene := curr[:i] + string(char) + curr[i+1:]
-					// if _, has := wordSet[nextWord]; has {
-					// 	if _, has := endSet[nextWord]; has {
-					// 		return true
-					// 	}
-					// 	if _, has := visited[nextWord]; !has {
-					// 		nextSet[nextWord] = struct{}{}
-					// 		visited[nextWord] = struct{}{}
-					// 	}
-					// }
 					if _, has := bankSet[newGene]; has { // 有效的基因
 						if _, has := endSet[newGene]; has { // 在 endSet 中找到了新基因，变异完成
 							return step
