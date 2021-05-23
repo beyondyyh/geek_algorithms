@@ -47,8 +47,9 @@ func minMutation1(start string, end string, bank []string) int {
 			}
 			for j := 0; j < len(curr); j++ {
 				for _, s := range m[curr[j]] {
-					// fmt.Printf("j:%d s:%s tmp:%s, visited:%+v\n", j, s, curr[:j]+s+curr[j+1:], visited)
-					if idx := indexOf(curr[:j]+s+curr[j+1:], bank); idx != -1 && !visited[idx] {
+					gene := curr[:j] + s + curr[j+1:]
+					// fmt.Printf("j:%d s:%s tmp:%s, visited:%+v\n", j, s, gene, visited)
+					if idx := indexOf(gene, bank); idx != -1 && !visited[idx] {
 						queue = append(queue, bank[idx])
 						visited[idx] = true
 					}
@@ -56,7 +57,7 @@ func minMutation1(start string, end string, bank []string) int {
 			}
 		}
 		count++
-		queue = queue[l:]
+		queue = queue[1:]
 	}
 
 	return -1

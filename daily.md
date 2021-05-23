@@ -29,7 +29,7 @@
 |[27] <https://leetcode-cn.com/problems/minesweeper/>|[529.mineSweeper.go](./week04/529.mineSweeper.go)|M|
 |[28] <https://leetcode-cn.com/problems/majority-element/>|[169.majorityElement.go](./week05/169.majorityElement.go)|S|
 |[29] <https://leetcode-cn.com/problems/word-ladder/>|[127.ladderLength.go](./week05/127.ladderLength.go)|H|
-|[30] <https://leetcode-cn.com/problems/two-sum/>|[1.twoSum.go](./week05/1.twoSum.go)|S|
+|[30] <https://leetcode-cn.com/problems/two-sum/>|[1.twoSum.go](./week01/1.twoSum.go)|S|
 |[31] <https://leetcode-cn.com/problems/walking-robot-simulation/>|[874.robotSim.go](874.robotSim.go)|S|
 |[36] [最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/)|[64.minPathSum.go](./week06/64.minPathSum.go)|M|dp|
 |[37] [零钱兑换](https://leetcode-cn.com/problems/coin-change/)|[322.coinChange.go](./week06/322.coinChange.go)|M|递归、dp|
@@ -40,3 +40,6 @@
 |[43] [买卖股票的最佳时机](121.maxProfit.go)|[121.maxProfit.go](./week07/121.maxProfit.go)|S|dp、贪心算法|
 |[44] [实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)|[208.trie.go](./week07/208.trie.go)|M|trie|
 |[45] [212. 单词搜索](https://leetcode-cn.com/problems/word-search-ii/)|[212.findWords.go](./week07/212.findWords.go)|H|dp|
+|[46] [433. 最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation/)|[433.minMutation.go](./week07/433.minMutation.go)|S|递归、回溯|
+|[46] [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)|[72.minDistance.go](./week07/72.minDistance.go)|H||
+|[47] [15. 三数之和](https://leetcode-cn.com/problems/3sum/)|[15.threeSum.go](./week06/15.threeSum.go)|M|双指针|

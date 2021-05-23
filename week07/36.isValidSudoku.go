@@ -17,9 +17,9 @@ func isValidSudoku(board [][]byte) bool {
 	box := make([]map[byte]bool, 9)
 	// 初始化，都设为false
 	for i := 0; i < 9; i++ {
-		row[i] = make(map[byte]bool, 9) // 没必要指定make的size，可能填不满就判断为Fase退出了
-		col[i] = make(map[byte]bool, 9)
-		box[i] = make(map[byte]bool, 9)
+		row[i] = make(map[byte]bool) // 没必要指定make的size为9，可能填不满就判断为Fase退出了
+		col[i] = make(map[byte]bool)
+		box[i] = make(map[byte]bool)
 	}
 	// 遍历
 	for i := 0; i < 9; i++ {

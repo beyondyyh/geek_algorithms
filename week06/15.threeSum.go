@@ -11,6 +11,8 @@ import "sort"
 // @lc: https://leetcode-cn.com/problems/3sum/
 
 // 方法一：排序+双指针法 两端夹逼，此题最优解
+// abc三个指针，a->0..n-3, b->a+1..c, c->n-1..b
+// a先保持不动，b和c两端加逼，直到相遇之后，再往后移动a，以此类推直到数组尾部
 // 时间复杂度：O(n^2)
 // 空间复杂度：O(log(n)) 快排的空间复杂度
 func threeSum1(nums []int) [][]int {
@@ -21,8 +23,6 @@ func threeSum1(nums []int) [][]int {
 
 	sort.Ints(nums)
 	res := [][]int{}
-	// abc三个指针，a->0..n-3, b->a+1..n-2, c->n-1..b
-	// a先保持不动，b和c左右加逼，直到相遇之后，再往后移动a，以此类推直到数组尾部
 	var a, b, c int
 	for a = 0; a <= n-3; a++ {
 		if nums[a] > 0 {
@@ -32,7 +32,7 @@ func threeSum1(nums []int) [][]int {
 			continue
 		}
 		b, c = a+1, n-1
-		for b < c {
+		for b < c { // b和c两端夹逼
 			sum := nums[a] + nums[b] + nums[c]
 			if sum < 0 {
 				b++
@@ -40,10 +40,10 @@ func threeSum1(nums []int) [][]int {
 				c--
 			} else {
 				res = append(res, []int{nums[a], nums[b], nums[c]})
-				for b < c && nums[b] == nums[b+1] {
+				for b < c && nums[b] == nums[b+1] { // b去重
 					b++
 				}
-				for b < c && nums[c-1] == nums[c] {
+				for b < c && nums[c] == nums[c-1] { // b去重
 					c--
 				}
 				b++
