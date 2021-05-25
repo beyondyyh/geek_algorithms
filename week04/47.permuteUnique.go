@@ -42,6 +42,7 @@ func permuteUnique(nums []int) [][]int {
 	backtrack = func(path []int) {
 		if len(path) == len(nums) {
 			res = append(res, append([]int{}, path...)) // 注意：需要拷贝
+			return
 		}
 		// 选择、处理逻辑、回撤选择
 		for i := 0; i < len(nums); i++ {
@@ -49,7 +50,9 @@ func permuteUnique(nums []int) [][]int {
 			if visited[i] {
 				continue
 			}
-			// 上一个元素和当前相同，并且没有访问过就跳过，注意这里：去重逻辑
+			// 当前值等于前一个值： 两种情况：
+			// 1. nums[i-1] 没用过 说明回溯到了同一层 此时接着用num[i] 则会与 同层用num[i-1] 重复
+			// 2. nums[i-1] 用过了 说明此时在num[i-1]的下一层 相等不会重复
 			if i != 0 && nums[i] == nums[i-1] && !visited[i-1] {
 				continue
 			}

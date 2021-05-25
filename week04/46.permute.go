@@ -45,6 +45,7 @@ func permute(nums []int) [][]int {
 		// 只有长度相等时，才是全排列
 		if len(path) == len(nums) {
 			res = append(res, append([]int{}, path...)) // 注意：需要拷贝
+			return
 		}
 		// 选择+标记，处理结果、再撤销选择+撤销标记
 		for i := 0; i < len(nums); i++ {

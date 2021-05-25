@@ -22,8 +22,15 @@ func numIslands(grid [][]byte) int {
 		return 0
 	}
 
-	// 行、列
-	row, col := len(grid), len(grid[0])
+	// 行、列数
+	rows, cols := len(grid), len(grid[0])
+	// 上下左右 与当前位置的offset
+	directions := [][]int{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}
+
+	// 判断当前位置是否在网格内
+	inGrid := func(i, j int) bool {
+		return i >= 0 && i < rows && j >= 0 && j < cols
+	}
 
 	// dfsMarking 的作用是如果当前位置是'1'，则把它的前后左右都标记为'0'，
 	// 以此类推，递归把他的子子孙孙都标记为'0'，也就是把相邻的陆地都夷为平地，
@@ -31,22 +38,29 @@ func numIslands(grid [][]byte) int {
 	var dfsMarking func(int, int) // 谨遵泛型递归四部曲
 	dfsMarking = func(i, j int) {
 		// 1. terminaort 递归终止条件，i、j越界或当前位置不是'1'
-		if i < 0 || j < 0 || i >= row || j >= col || '1' != grid[i][j] {
+		if !inGrid(i, j) || '1' != grid[i][j] {
 			return
 		}
+
 		// 2. process current logic
 		grid[i][j] = '0'
 		// 3. drill down 递推下探将它的上下左右以及子子孙孙的上下左右都做dfsMarking操作
-		dfsMarking(i-1, j) // 上
-		dfsMarking(i+1, j) // 下
-		dfsMarking(i, j-1) // 左
-		dfsMarking(i, j+1) // 右
+		// dfsMarking(i-1, j) // 上
+		// dfsMarking(i+1, j) // 下
+		// dfsMarking(i, j-1) // 左
+		// dfsMarking(i, j+1) // 右
+
+		// 以上4行代码可以简化，预先定义一个方向偏离量数组，防止循环里写即可
+		for _, direct := range directions {
+			dfsMarking(i+direct[0], j+direct[1])
+		}
+
 		// 4. revert states, nothing todo
 	}
 
 	var count int
-	for i := 0; i < row; i++ {
-		for j := 0; j < col; j++ {
+	for i := 0; i < rows; i++ {
+		for j := 0; j < cols; j++ {
 			if '1' == grid[i][j] {
 				count++
 				dfsMarking(i, j)
