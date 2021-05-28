@@ -24,7 +24,7 @@ func exist(board [][]byte, word string) bool {
 	}
 
 	// 坐标是否在 board 内，防止越界
-	inArea := func(x, y int) bool {
+	inBoard := func(x, y int) bool {
 		return x >= 0 && x < rows && y >= 0 && y < cols
 	}
 
@@ -40,7 +40,7 @@ func exist(board [][]byte, word string) bool {
 			for _, direction := range directions { // process
 				x := i + direction[0]
 				y := j + direction[1]
-				if inArea(x, y) && !visited[x][y] {
+				if inBoard(x, y) && !visited[x][y] {
 					if dfs(x, y, begin+1) {
 						return true
 					}
