@@ -47,3 +47,6 @@
 |[50] [231. 2的幂](https://leetcode-cn.com/problems/power-of-two/)|-|S|位运算|
 |[51] [367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square/)|-|M|二分查找、牛顿迭代|
 |[52] [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)|[198.rob.go](198.rob.go)|M|dp|
+|[53] [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/)|[190.reverseBits.go](190.reverseBits.go)|S|位移|
+|[54] [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)|[191.hammingWeight.go](191.hammingWeight.go)|S|位移|
+|[55] [1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)|[1122.relativeSortArray.go](1122.relativeSortArray.go)|S|位移|
