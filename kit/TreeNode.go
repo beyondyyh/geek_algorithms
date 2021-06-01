@@ -1,5 +1,10 @@
 package kit
 
+import (
+	"container/list"
+	"math"
+)
+
 // Definition for a binary tree node
 type TreeNode struct {
 	Val   int
@@ -8,7 +13,7 @@ type TreeNode struct {
 }
 
 // NULL declare
-var NULL = -1 << 63
+var NULL = math.MinInt64
 
 // Ints2Tree convert []int to binary-search-tree
 // 广度优先遍历BFS的 逆操作
@@ -162,4 +167,98 @@ func Postorder(root *TreeNode) []int {
 	}
 	recursion(root)
 	return res
+}
+
+//------------------------------------------------------------//
+// 非递归遍历：                                                 //
+// 		1
+// 	 2	    3
+// 4   5  6	  7
+
+// 前序：根->左->右，1245367
+func PreorderIter(root *TreeNode) []int {
+	// 可以用go标准库里的list(基于双链表)，或自己实现的栈(基于数组)
+	stack := list.New()
+
+	res := []int{}
+	cur := root
+	for cur != nil || stack.Len() > 0 {
+		for cur != nil {
+			res = append(res, cur.Val) // visited
+			stack.PushBack(cur)
+			cur = cur.Left
+		}
+
+		// fmt.Printf("s:%+v\n", showStack(stack))
+		// 栈顶元素，= stack.Peek()
+		top := stack.Back()
+		cur = top.Value.(*TreeNode)
+		// 转向右子树
+		cur = cur.Right
+		// 出栈，= stack.Pop
+		stack.Remove(top)
+	}
+
+	return res
+}
+
+// 中序：左->根->右，4251637
+func InorderIter(root *TreeNode) []int {
+	stack := list.New()
+
+	res := []int{}
+	cur := root
+	for cur != nil || stack.Len() != 0 {
+		// 左子树，一插到底
+		for cur != nil {
+			stack.PushBack(cur)
+			cur = cur.Left
+		} // 124
+
+		// 栈顶元素
+		top := stack.Back()
+		cur = top.Value.(*TreeNode)
+		res = append(res, cur.Val)
+		cur = cur.Right
+		stack.Remove(top)
+	}
+	return res
+}
+
+// 后序：左->右->根，4526731
+func PostorderIter(root *TreeNode) []int {
+	stack := list.New()
+
+	res := []int{}
+	cur := root
+	var lastVisit *TreeNode = nil
+	for cur != nil || stack.Len() != 0 {
+		// 左子树，一插到底
+		for cur != nil {
+			stack.PushBack(cur)
+			cur = cur.Left
+		}
+	}
+
+	cur = stack.Back().Value.(*TreeNode)
+	if cur.Right == nil || cur.Right == lastVisit {
+		res = append(res, cur.Val)
+		stack.Remove(stack.Back()) // = s.Pop()
+		// 记录上一个访问的节点，用于判断“访问根节点之前，右子树是否已访问过”
+		lastVisit = cur
+		// 表示不需要转向，继续弹栈
+		cur = nil
+	} else {
+		cur = cur.Right
+	}
+	return res
+}
+
+// showStack, 迭代list
+func showStack(l *list.List) []int {
+	eles := make([]int, 0, l.Len())
+	for e := l.Front(); e != nil; e = e.Next() {
+		eles = append(eles, e.Value.(*TreeNode).Val)
+	}
+	return eles
 }

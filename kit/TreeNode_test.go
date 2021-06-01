@@ -18,21 +18,39 @@ func Test_TreeNode(t *testing.T) {
 		expect []int         // 预期结果数组
 	}{
 		{
-			name:   "x1",
+			name:   "x1-1",
 			nums:   []int{1, 2, 3, 4, 5, 6, 7},
 			method: Preorder,
 			expect: []int{1, 2, 4, 5, 3, 6, 7},
 		},
 		{
-			name:   "x2",
+			name:   "x1-2",
+			nums:   []int{1, 2, 3, 4, 5, 6, 7},
+			method: PreorderIter,
+			expect: []int{1, 2, 4, 5, 3, 6, 7},
+		},
+		{
+			name:   "x2-1",
 			nums:   []int{1, 2, 3, 4, 5, 6, 7},
 			method: Inorder,
 			expect: []int{4, 2, 5, 1, 6, 3, 7},
 		},
 		{
-			name:   "x3",
+			name:   "x2-2",
+			nums:   []int{1, 2, 3, 4, 5, 6, 7},
+			method: InorderIter,
+			expect: []int{4, 2, 5, 1, 6, 3, 7},
+		},
+		{
+			name:   "x3-1",
 			nums:   []int{1, 2, 3, 4, 5, 6, 7},
 			method: Postorder,
+			expect: []int{4, 5, 2, 6, 7, 3, 1},
+		},
+		{
+			name:   "x3-2",
+			nums:   []int{1, 2, 3, 4, 5, 6, 7},
+			method: PostorderIter,
 			expect: []int{4, 5, 2, 6, 7, 3, 1},
 		},
 	}

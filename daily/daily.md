@@ -1,7 +1,7 @@
 **每日一刷练习，刻意练习，强化记忆**
 
-| Leetcode | Code | Points |
-| -------- | ---- | ------ |
+| Leetcode | Code | Difficulty | Points |
+| -------- | ---- | ---------- | ------ |
 |[03] <https://leetcode-cn.com/problems/two-sum>|[1.twoSum.go](../week01/1.twoSum.go)|
 |[04] <https://leetcode-cn.com/problems/swap-nodes-in-pairs/>|[26.swapPairs.go](../week01/26.swapPairs.go)|
 |[05] <https://leetcode-cn.com/problems/merge-two-sorted-lists/>|[21.mergeTwoLists.go](../week01/21.mergeTwoLists.go)|
@@ -49,4 +49,6 @@
 |[52] [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)|[198.rob.go](198.rob.go)|M|dp|
 |[53] [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/)|[190.reverseBits.go](190.reverseBits.go)|S|位移|
 |[54] [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)|[191.hammingWeight.go](191.hammingWeight.go)|S|位移|
-|[55] [1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)|[1122.relativeSortArray.go](1122.relativeSortArray.go)|S|位移|
+|[55] [1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)|[1122.relativeSortArray.go](1122.relativeSortArray.go)|S|计数排序、自定义排序|
+|[56] [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)|[718.findLength.go](718.findLength.go)|M|排序|
+|[57] [387. 字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)|[]()|S|xxx|
