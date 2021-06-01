@@ -2,7 +2,30 @@
 
 ## Bloom filter
 
+**原理：**
+布隆过滤器（Bloom Filter）的核心实现是一个超大的位数组和K个哈希函数。将每个要添加的元素通过K个哈希函数，得到对应于位数组上的k个位置，然后都标记为1。主要用于判断一个元素一定不存在的场景，有一定的误判率。
+
+**主要使用场景：**
+
+- 网络爬虫里对url去重，或记录已经访问过的url集合，防止重复访问；
+- 反垃圾邮件，从10亿个邮箱里判断某些邮箱是否是垃圾邮箱，同理：垃圾短信；
+- 缓存击穿，将确定存在于db的记录放到布隆过滤器里，当黑客等大量访问不存在的记录时快速返回，防止将请求都达到db上把服务打挂。
+
+**添加元素：**
+
+- 将要查询的元素通过k个哈希函数，得到位数组上的k个位置
+- 将这k个位置标记为1
+
+**查询元素：**
+
+- 将要查询的元素通过k个哈希函数，得到位数组上的k个位置，
+- `如果这 k 个位置中有一个为0，则肯定不存在集合中`，一般应用场景都是使用这个特性。
+- 如果这 k 个位置全部为1，则表示极大概率存在集合中
+
 ## LRU cache
+
+- [基于 双链表+hashmap 代码实现](146.LRUCache.go)
+- [基于 标准库 `container/list` 代码实现](146.LRUCache-2.go)
 
 ## 排序算法
 
@@ -190,4 +213,5 @@ func (h *iheap) Pop() interface{} {
 
 | Title | Code | <span id="Top">Difficulty</span> | Points |
 | ----- | ---- | -------------------------------- |--------|
+|[146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/)|[146.LRUCache.go](146.LRUCache.go)|M|DListNode+hashmap，标准库container/list|
 |[1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)|[1122.relativeSortArray.go](1122.relativeSortArray.go)|S|计数排序、自定义排序|

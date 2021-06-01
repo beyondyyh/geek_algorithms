@@ -52,3 +52,4 @@
 |[55] [1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)|[1122.relativeSortArray.go](1122.relativeSortArray.go)|S|计数排序、自定义排序|
 |[56] [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)|[718.findLength.go](718.findLength.go)|M|排序|
 |[57] [387. 字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)|[]()|S|xxx|
+|[58] [403. 青蛙过河](https://leetcode-cn.com/problems/frog-jump/)||H|dp|

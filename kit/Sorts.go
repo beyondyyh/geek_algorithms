@@ -99,9 +99,7 @@ func heapSort(arr []int) []int {
 }
 
 // 利用golang标准库实现堆，只需要实现 heap接口的 `Push, Pop`方法即可
-type iheap struct {
-	sort.IntSlice // 默认升序
-}
+type iheap struct{ sort.IntSlice }
 
 // // 默认升序，倒序的话需要重写 sort.Less 比较器
 // func (h *iheap) Less(i, j int) bool {
