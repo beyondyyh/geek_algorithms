@@ -43,13 +43,15 @@
 |[46] [433. 最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation/)|[433.minMutation.go](../week07/433.minMutation.go)|S|递归、回溯|
 |[47] [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)|[72.minDistance.go](../week07/72.minDistance.go)|H||
 |[48] [15. 三数之和](https://leetcode-cn.com/problems/3sum/)|[15.threeSum.go](../week06/15.threeSum.go)|M|双指针|
-|[49] [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)|-|M|dfs、回溯+剪枝|
-|[50] [231. 2的幂](https://leetcode-cn.com/problems/power-of-two/)|-|S|位运算|
-|[51] [367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square/)|-|M|二分查找、牛顿迭代|
+|[49] [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)|[22.generateParenthesis.go](../week04/22.generateParenthesis.go)|M|dfs、回溯+剪枝|
+|[50] [231. 2的幂](https://leetcode-cn.com/problems/power-of-two/)|[231.isPowerOfTwo.go](../week08/231.isPowerOfTwo.go)|S|位运算|
+|[51] [367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square/)|[367.isPerfectSquare.go](../week04/367.isPerfectSquare.go)|M|二分查找、牛顿迭代|
 |[52] [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)|[198.rob.go](198.rob.go)|M|dp|
 |[53] [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/)|[190.reverseBits.go](190.reverseBits.go)|S|位移|
 |[54] [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)|[191.hammingWeight.go](191.hammingWeight.go)|S|位移|
 |[55] [1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)|[1122.relativeSortArray.go](1122.relativeSortArray.go)|S|计数排序、自定义排序|
-|[56] [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)|[718.findLength.go](718.findLength.go)|M|排序|
+|[56] [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)|[718.findLength.go](718.findLength.go)|M|dp|
 |[57] [387. 字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)|[]()|S|xxx|
 |[58] [403. 青蛙过河](https://leetcode-cn.com/problems/frog-jump/)||H|dp|
+|[59] [541. 反转字符串 II](https://leetcode-cn.com/problems/reverse-string-ii/)|[]()|M|dp|
+|[60] [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)|[]()|M|dp|

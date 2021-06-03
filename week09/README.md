@@ -38,6 +38,8 @@
 
 ### 十大经典排序算法
 
+> [一篇介绍十大经典排序的文字，附动图](https://www.cnblogs.com/onepixel/p/7674659.html)
+
 **十种常见排序算法可以分为两大类：**
 
 - **比较类排序：** 通过比较来决定元素间的相对次序，由于其时间复杂度不能突破O(nlogn)，因此也称为非线性时间比较类排序。
@@ -215,3 +217,4 @@ func (h *iheap) Pop() interface{} {
 | ----- | ---- | -------------------------------- |--------|
 |[146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/)|[146.LRUCache.go](146.LRUCache.go)|M|DListNode+hashmap，标准库container/list|
 |[1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)|[1122.relativeSortArray.go](1122.relativeSortArray.go)|S|计数排序、自定义排序|
+|[56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)|[56.merge.go](56.merge.go)|S|排序、合并区间|
