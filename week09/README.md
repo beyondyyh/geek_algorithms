@@ -218,3 +218,4 @@ func (h *iheap) Pop() interface{} {
 |[146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/)|[146.LRUCache.go](146.LRUCache.go)|M|DListNode+hashmap，标准库container/list|
 |[1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)|[1122.relativeSortArray.go](1122.relativeSortArray.go)|S|计数排序、自定义排序|
 |[56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)|[56.merge.go](56.merge.go)|S|排序、合并区间|
+|[300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)|[300.lengthOfLIS.go](300.lengthOfLIS.go)|M|dp|

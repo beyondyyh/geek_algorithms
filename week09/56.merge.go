@@ -1,7 +1,6 @@
 package week09
 
 import (
-	"math"
 	"sort"
 )
 
@@ -21,7 +20,7 @@ func merge(intervals [][]int) [][]int {
 		return intervals
 	}
 
-	// 先按照起点进行排序
+	// 先按起点进行排序
 	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
 	// 结果集
 	res := make([][]int, 0, n)
@@ -35,7 +34,7 @@ func merge(intervals [][]int) [][]int {
 		if curInterval[0] > last[1] {
 			res = append(res, curInterval)
 		} else {
-			last[1] = int(math.Max(float64(last[1]), float64(curInterval[1])))
+			last[1] = max(last[1], curInterval[1])
 			// res[len(res)-1] = last
 		}
 	}

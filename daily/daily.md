@@ -51,7 +51,11 @@
 |[54] [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)|[191.hammingWeight.go](191.hammingWeight.go)|S|位移|
 |[55] [1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)|[1122.relativeSortArray.go](1122.relativeSortArray.go)|S|计数排序、自定义排序|
 |[56] [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)|[718.findLength.go](718.findLength.go)|M|dp|
-|[57] [387. 字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)|[]()|S|xxx|
+|[57] [387. 字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)|[387.firstUniqChar.go](387.firstUniqChar.go)|S|hashmap|
 |[58] [403. 青蛙过河](https://leetcode-cn.com/problems/frog-jump/)||H|dp|
-|[59] [541. 反转字符串 II](https://leetcode-cn.com/problems/reverse-string-ii/)|[]()|M|dp|
-|[60] [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)|[]()|M|dp|
+|[59] [541. 反转字符串 II](https://leetcode-cn.com/problems/reverse-string-ii/)|[541.reverseStr.go](541.reverseStr.go)|S|双指针、循环步长为2*k|
+|[60] [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)|[300.lengthOfLIS.go](300.lengthOfLIS.go)|M|dp|
+|[61] [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)|[50.myPow.go](50.myPow.go)|M|分治、快速幂、位运算|
+|[62] [680. 验证回文字符串 Ⅱ](https://leetcode-cn.com/problems/valid-palindrome-ii/)|[680.validPalindrome.go](680.validPalindrome.go)|S|双指针、回文字串|
+|[63] [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/)|[x](x)|H|栈|
+|[64] [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)|[83.deleteDuplicates.go](83.deleteDuplicates.go)|S|链表、双指针|

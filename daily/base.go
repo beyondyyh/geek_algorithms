@@ -1,5 +1,12 @@
 package daily
 
+import "beyondyyh/geek_algorithms/kit"
+
+type (
+	ListNode  = kit.ListNode
+	DListNode = kit.DListNode
+)
+
 func max(a, b int) int {
 	if a > b {
 		return a
