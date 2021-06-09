@@ -144,7 +144,7 @@ func mergeSort(arr []int) []int {
 		return res
 	}
 
-  // 切分成左右2部分，分别进行归并排序
+  	// 切分成左右2部分，分别进行归并排序
 	mid := n / 2
 	left := mergeSort(arr[:mid])
 	right := mergeSort(arr[mid:])
@@ -211,6 +211,21 @@ func (h *iheap) Pop() interface{} {
 
 ## 高级动态规划
 
+### 动态规划、递归、分治的区别
+
+- **关键点：** 动态规划 和 递归、或 分治没有根本上的区别，关键看有无最优子结构
+- **共性：** 找到最近重复子问题
+- **差异性：** 最优子结构、中途可以淘汰次优解（必须淘汰次优解）时间复杂度从指数级（泛型递归）降到多项式级（O(n)或O(n^2)）
+
+### 动态规划的关键点
+
+- 确定dp数组（dp table）以及下标的含义，dp的含义不同写出的转移方程也不同，一般bottom-up比较好理解；
+- 最优子结构，找到子问题 dp[n] = best_of(dp[n-1], dp[n-2])，第n步的值是前面几个值的最佳值（可能是累加、最大、最小等）；
+- 递推公式（美其名曰：状态转移方程或DP方程）；
+- dp状态初始化；
+- 确定遍历顺序，根据dp转移方程进行递推；
+- 举例推导dp数组。
+
 ## 练习题
 
 | Title | Code | <span id="Top">Difficulty</span> | Points |
@@ -219,3 +234,4 @@ func (h *iheap) Pop() interface{} {
 |[1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)|[1122.relativeSortArray.go](1122.relativeSortArray.go)|S|计数排序、自定义排序|
 |[56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)|[56.merge.go](56.merge.go)|S|排序、合并区间|
 |[300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)|[300.lengthOfLIS.go](300.lengthOfLIS.go)|M|dp|
+|[746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)|[746.minCostClimbingStairs.go](746.minCostClimbingStairs.go)|S|dp、爬楼梯|

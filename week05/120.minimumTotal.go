@@ -20,13 +20,6 @@ package week05
 // 将任一点到底边的最小路径和，转化成了与该点相邻两点到底边的最小路径和中的较小值，再加上该点本身的值
 // 时间复杂度：O(2^n)
 func minimumTotal1(triangle [][]int) int {
-	min := func(a, b int) int {
-		if a < b {
-			return a
-		}
-		return b
-	}
-
 	var dfs func(int, int) int
 	dfs = func(i, j int) int {
 		// 1. terminator 走到最下一层（此时i=i+1），路径为0
@@ -41,12 +34,6 @@ func minimumTotal1(triangle [][]int) int {
 
 // 方法二：递归+记忆化搜索
 func minimumTotal2(triangle [][]int) int {
-	min := func(a, b int) int {
-		if a < b {
-			return a
-		}
-		return b
-	}
 	// 记忆化缓存
 	memo := make([][]int, len(triangle))
 	var dfs func(int, int) int
@@ -77,12 +64,6 @@ func minimumTotal3(triangle [][]int) int {
 	// 1. 初始化dp数组，与triangle一样
 	dp := make([][]int, l)
 	copy(dp, triangle)
-	min := func(a, b int) int {
-		if a < b {
-			return a
-		}
-		return b
-	}
 
 	// 2. 根据dp方程 dp[i][j] = min(dp[i+1][j], dp[i+1][j+1]) + A[i][j] 递推
 	// 从倒数第二行开始递推
@@ -105,12 +86,6 @@ func minimumTotal4(triangle [][]int) int {
 	// 1. 初始化dp数组，与triangle一样
 	dp := make([][]int, l)
 	copy(dp, triangle)
-	min := func(a, b int) int {
-		if a < b {
-			return a
-		}
-		return b
-	}
 
 	// 自顶向下递推，DP方程：dp[i][j] = min(dp[i-1][j-1], dp[i-1][j]) + A[i][j]
 	for i := 1; i < l; i++ {

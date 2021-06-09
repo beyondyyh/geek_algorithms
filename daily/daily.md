@@ -59,3 +59,4 @@
 |[62] [680. 验证回文字符串 Ⅱ](https://leetcode-cn.com/problems/valid-palindrome-ii/)|[680.validPalindrome.go](680.validPalindrome.go)|S|双指针、回文字串|
 |[63] [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/)|[x](x)|H|栈|
 |[64] [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)|[83.deleteDuplicates.go](83.deleteDuplicates.go)|S|链表、双指针|
+|[65] [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)|[120.minimumTotal.go](120.minimumTotal.go)|M|dp|
