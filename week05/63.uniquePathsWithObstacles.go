@@ -55,34 +55,36 @@ func uniquePathsWithObstacles2(obstacleGrid [][]int) int {
 	return dp[len(dp)-1]
 }
 
-// 动态规划：自顶向底
-// 状态定义：dp[i][j]表示走到格子(i,j)的方法数
-// DP方程：dp[i][j] = dp[i-1][j] + dp[i][j-1]
-// dp[i][j]表示到达位置(i,j)的不同路径数，只有2中走法，从上面下来dp[i-1][j] 或 从左边过去dp[i][j-1]
+// 动态规划：bottom-up，二维数组更易理解
+// dp状态定义：dp[i][j]表示走到格子(i,j)的方法数
+// dp转移方程：dp[i][j] = dp[i-1][j] + dp[i][j-1] 表示到达位置(i,j)的不同路径数，只有2中走法，从上面下来dp[i-1][j] 或 从左边过去dp[i][j-1]
 // 障碍物：到达它的路径数=0，即它不能给其他点贡献路径数
+// dp初始化：狠重要
+//		第 1 列的格子只有从其上边格子走过去这一种走法，因此初始化 dp[i][0] 值为 1，存在障碍物时为 0；
+//		第 1 行的格子只有从其左边格子走过去这一种走法，因此初始化 dp[0][j] 值为 1，存在障碍物时为 0
+// 最终结果：dp[m-1][n-1]
 func uniquePathsWithObstacles3(obstacleGrid [][]int) int {
 	if len(obstacleGrid) == 0 || len(obstacleGrid[0]) == 0 {
 		return 0
 	}
 
-	// 1. 定义 dp 数组并初始化第 1 行和第 1 列
+	// 1. 定义dp数组，先初始化dp二维数组，此时格子全是0
 	m, n := len(obstacleGrid), len(obstacleGrid[0])
 	dp := make([][]int, m)
-	// 按行数初始化第一列的值
 	for i := 0; i < m; i++ {
 		dp[i] = make([]int, n)
-		if i > 0 {
-			dp[i][0] = dp[i-1][0]
-		} else if obstacleGrid[0][0] == 0 {
-			dp[0][0] = 1
-		}
-	}
-	// 按列数初始化第一行的值
-	for j := 1; j < n; j++ {
-		dp[0][j] = dp[0][j-1]
 	}
 
-	// 2. 根据状态转移方程 dp[i][j] = dp[i-1][j] + dp[i][j-1] 进行递推
+	// 2.1 初始化第一列，只要遇到“障碍物”则第一列后续的格子就不必看了，都是0
+	for i := 0; i < m && obstacleGrid[i][0] == 0; i++ {
+		dp[i][0] = 1
+	}
+	// 2.2 初始化第一行，只要遇到“障碍物”则第一行后续的格子就不必看了，都是0
+	for j := 0; j < n && obstacleGrid[0][j] == 0; j++ {
+		dp[0][j] = 1
+	}
+
+	// 3. 根据dp方程递推
 	for i := 1; i < m; i++ {
 		for j := 1; j < n; j++ {
 			if obstacleGrid[i][j] == 0 {
@@ -91,6 +93,6 @@ func uniquePathsWithObstacles3(obstacleGrid [][]int) int {
 		}
 	}
 
-	// 3. result
+	// 4. result
 	return dp[m-1][n-1]
 }
