@@ -52,11 +52,11 @@ func permute(nums []int) [][]int {
 			if visited[i] {
 				continue
 			}
-			visited[i] = true
-			path = append(path, nums[i])
-			backtrack(path)
-			visited[i] = false
-			path = path[:len(path)-1]
+			visited[i] = true            // marking
+			path = append(path, nums[i]) // choice
+			backtrack(path)              // backtrack
+			visited[i] = false           // revert
+			path = path[:len(path)-1]    // revert
 		}
 	}
 

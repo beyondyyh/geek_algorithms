@@ -9,3 +9,4 @@
 | Title | Code | <span id="Top">Difficulty</span> | Points |
 | ----- | ---- | -------------------------------- |--------|
 |[14. 最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix/)|[14.longestCommonPrefix.go](14.longestCommonPrefix.go)|S|二分法|
+|[8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)|[]()|M|字符串|
