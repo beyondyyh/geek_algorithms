@@ -16,9 +16,8 @@ func (s *Stack) Push(x interface{}) {
 
 // Pop 删除并返回栈顶元素
 func (s *Stack) Pop() interface{} {
-	n := s.Len()
-	x := (*s)[n-1]
-	*s = (*s)[0 : n-1]
+	x := (*s)[s.Len()-1]
+	*s = (*s)[:s.Len()-1]
 	return x
 }
 
