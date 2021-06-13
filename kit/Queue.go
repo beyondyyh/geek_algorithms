@@ -1,5 +1,6 @@
 package kit
 
+// 队列 queue---------------------------------------------------------
 type Queue []interface{}
 
 func (q *Queue) Len() int {
