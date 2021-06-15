@@ -57,11 +57,13 @@
 |[60] [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)|[300.lengthOfLIS.go](300.lengthOfLIS.go)|M|dp|
 |[61] [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)|[50.myPow.go](50.myPow.go)|M|分治、快速幂、位运算|
 |[62] [680. 验证回文字符串 Ⅱ](https://leetcode-cn.com/problems/valid-palindrome-ii/)|[680.validPalindrome.go](680.validPalindrome.go)|S|双指针、回文字串|
-|[63] [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/)|[x](x)|H|栈|
+|[63] [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/)|[32.longestValidParentheses.go](32.longestValidParentheses.go)|H|栈|
 |[64] [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)|[83.deleteDuplicates.go](83.deleteDuplicates.go)|S|链表、双指针|
 |[65] [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)|[120.minimumTotal.go](120.minimumTotal.go)|M|dp|
 |[66] [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/)|[62.uniquePaths.go](62.uniquePaths.go)|M|dp|
 |[67] [46. 全排列](https://leetcode-cn.com/problems/permutations/)|[46.permute.go](46.permute.go)|M|排列组合、子集问题，回溯|
 |[68] [205. 同构字符串](https://leetcode-cn.com/problems/isomorphic-strings/)|[205.isIsomorphic.go](205.isIsomorphic.go)|S|字符串|
-|[69] [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/)|[x](x)|M|数组|
+|[69] [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/)|[238.productExceptSelf.go](238.productExceptSelf.go)|M|左右迭代|
 |[70] [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)|[239.maxSlidingWindow.go](239.maxSlidingWindow.go)|H|大顶堆、双端队列deque|
+|[71] [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)|[208.trie.go](208.trie.go)|M|前缀树|
+|[72] [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/)|[190.reverseBits.go](190.reverseBits.go)|S|位运算|
