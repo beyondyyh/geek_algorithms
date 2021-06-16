@@ -13,10 +13,7 @@ package week10
 // 时间复杂度：O(n)
 // 空间复杂度：O(1)
 func reverseString(s []byte) {
-	begin, end := 0, len(s)-1
-	for begin < end {
+	for begin, end := 0, len(s)-1; begin < end; begin, end = begin+1, end-1 {
 		s[begin], s[end] = s[end], s[begin]
-		begin++
-		end--
 	}
 }
