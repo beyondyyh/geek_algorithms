@@ -67,3 +67,5 @@
 |[70] [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)|[239.maxSlidingWindow.go](239.maxSlidingWindow.go)|H|大顶堆、双端队列deque|
 |[71] [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)|[208.trie.go](208.trie.go)|M|前缀树|
 |[72] [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/)|[190.reverseBits.go](190.reverseBits.go)|S|位运算|
+|[73] [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)|[200.numIslands.go](200.numIslands.go)|M|dfs|
+|[74] [1. 两数之和](https://leetcode-cn.com/problems/two-sum/description/)|[1.twoSum.go](1.twoSum.go)|S|hashmap|
