@@ -6,12 +6,6 @@ package practice
  * [2] 两数相加
  */
 
-// ListNode的定义放到 `@lc code=start` 的外面，否则提交到LeetCode会报重复定义的错误
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 // @lc code=start
 /**
  * Definition for singly-linked list.
