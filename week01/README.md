@@ -61,8 +61,8 @@ todos
 [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)|[23.mergeKLists.go](23.mergeKLists.go)|H|小根堆、优先队列|
 [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)|[24.swapPairs.go](24.swapPairs.go)|M|递归、迭代|
 [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)|[26.removeDuplicates.go](26.removeDuplicates.go)|S|双指针|
-[61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/)|[61.rotateRight.go](61.rotateRight.go)|M|双指针、取模|
-[66. 加一](https://leetcode-cn.com/problems/plus-one/)|[66.plusOne.go](66.plusOne)|S|x|
+[61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/)|[61.rotateList.go](61.rotateList.go)|M|双指针、取模|
+[66. 加一](https://leetcode-cn.com/problems/plus-one/)|[66.plusOne.go](66.plusOne.go)|S|进位，数组从后往前遍历|
 [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)|[88.merge.go](88.merge.go)|S|双指针|
 [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii/)|[92.reverseBetween.go](92.reverseBetween.go)|M|双指针|
 [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)|[155.minStack.go](155.minStack.go)|S|辅助栈|

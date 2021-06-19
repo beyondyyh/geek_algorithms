@@ -148,6 +148,6 @@ func Postorder(root *TreeNode) []int {
 [剑指Offer49.丑数](https://leetcode-cn.com/problems/chou-shu-lcof/)|[49.nthUglyNumber.go](49.nthUglyNumber.go)|M|DP、小根堆|
 [59. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)|[59.maxSlidingWindow.go](59.maxSlidingWindow.go)|H|大顶堆、双堆队列|
 [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)|[84.largestRectangleArea.go](84.largestRectangleArea.go)|H|暴力枚举、单调栈|
-[242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/description/)|[242.isAnagram.go](242.isAnagram.go)|S|-|
+[242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/description/)|[242.isAnagram.go](242.isAnagram.go)|S|hashmap|
 [347. 前K个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/)|[347.topKFrequent.go](347.topKFrequent.go)|M|hashmap计数、小根堆|
 [N 叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/description/)|[589.preorder.go](589.preorder.go)|S|树的遍历|

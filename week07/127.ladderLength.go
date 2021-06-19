@@ -57,8 +57,8 @@ func ladderLength1(beginWord string, endWord string, wordList []string) int {
 func ladderLength2(beginWord string, endWord string, wordList []string) int {
 	// setep1：先将 wordList 放到哈希表里，便于判断某个单词是否在 wordList 里
 	wordSet := make(map[string]struct{})
-	for _, wd := range wordList {
-		wordSet[wd] = struct{}{}
+	for _, word := range wordList {
+		wordSet[word] = struct{}{}
 	}
 	// 如果 endWord 不存在于 wordList 中，则无法转换
 	if _, has := wordSet[endWord]; !has {
