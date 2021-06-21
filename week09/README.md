@@ -43,7 +43,7 @@
 **十种常见排序算法可以分为两大类：**
 
 - **比较类排序：** 通过比较来决定元素间的相对次序，由于其时间复杂度不能突破O(nlogn)，因此也称为非线性时间比较类排序。
-- **非比较类排序：** 不通过比较来决定元素间的相对次序，它可以突破基于比较排序的时间下界，以线性时间运行，因此也称为线性时间非比较类排序。 
+- **非比较类排序：** 不通过比较来决定元素间的相对次序，它可以突破基于比较排序的时间下界，以线性时间运行，因此也称为线性时间非比较类排序。
 
 <img src="../imgs/sorts.png" width="750" />
 
@@ -67,32 +67,32 @@
 
 ```golang
 func quickSort(arr []int, left, right int) {
-	if len(arr) <= 1 {
-		return
-	}
+    if len(arr) <= 1 {
+        return
+    }
 
-	// 分区操作，返回轴点索引下标
-	var partition func(arr []int, left, right int) int
-	partition = func(arr []int, left, right int) int {
-		pivot := left      // 选取第一个元素作为轴点
-		index := pivot + 1 // 遍历的游标
-		for i := index; i <= right; i++ {
-			if arr[i] < arr[pivot] {
-				arr[i], arr[index] = arr[index], arr[i] // 比轴点小的交换到前面
-				index++
-			}
-		}
-		arr[pivot], arr[index-1] = arr[index-1], arr[pivot]
-		return index - 1
-	}
+    // 分区操作，返回轴点索引下标
+    var partition func(arr []int, left, right int) int
+    partition = func(arr []int, left, right int) int {
+        pivot := left      // 选取第一个元素作为轴点
+        index := pivot + 1 // 遍历的游标
+        for i := index; i <= right; i++ {
+            if arr[i] < arr[pivot] {
+                arr[i], arr[index] = arr[index], arr[i] // 比轴点小的交换到前面
+                index++
+            }
+        }
+        arr[pivot], arr[index-1] = arr[index-1], arr[pivot]
+        return index - 1
+    }
 
-	// recursion
-	if left < right {
-		pivot := partition(arr, left, right)
-		quickSort(arr, left, pivot-1)
-		quickSort(arr, pivot+1, right)
-	}
-	return
+    // recursion
+    if left < right {
+        pivot := partition(arr, left, right)
+        quickSort(arr, left, pivot-1)
+        quickSort(arr, pivot+1, right)
+    }
+    return
 }
 ```
 
@@ -114,42 +114,42 @@ func quickSort(arr []int, left, right int) {
 
 ```golang
 func mergeSort(arr []int) []int {
-	n := len(arr)
-	if n == 1 {
-		return arr // 最后切割只剩下一个元素，可以认为是有序的
-	}
+    n := len(arr)
+    if n == 1 {
+        return arr // 最后切割只剩下一个元素，可以认为是有序的
+    }
 
-	// 合并2个有序数组
-	var _merge func(left, right []int) []int
-	_merge = func(left, right []int) []int {
-		m, n := len(left), len(right)
-		res := make([]int, 0, m+n)
+    // 合并2个有序数组
+    var _merge func(left, right []int) []int
+    _merge = func(left, right []int) []int {
+        m, n := len(left), len(right)
+        res := make([]int, 0, m+n)
 
-		var i, j int
-		for i < m && j < n {
-			if left[i] <= right[j] {
-				res = append(res, left[i])
-				i++
-			} else {
-				res = append(res, right[j])
-				j++
-			}
-		}
-		if i < m {
-			res = append(res, left[i:]...)
-		}
-		if j < n {
-			res = append(res, right[j:]...)
-		}
-		return res
-	}
+        var i, j int
+        for i < m && j < n {
+            if left[i] <= right[j] {
+                res = append(res, left[i])
+                i++
+            } else {
+                res = append(res, right[j])
+                j++
+            }
+        }
+        if i < m {
+            res = append(res, left[i:]...)
+        }
+        if j < n {
+            res = append(res, right[j:]...)
+        }
+        return res
+    }
 
-  	// 切分成左右2部分，分别进行归并排序
-	mid := n / 2
-	left := mergeSort(arr[:mid])
-	right := mergeSort(arr[mid:])
+      // 切分成左右2部分，分别进行归并排序
+    mid := n / 2
+    left := mergeSort(arr[:mid])
+    right := mergeSort(arr[mid:])
 
-	return _merge(left, right)
+    return _merge(left, right)
 }
 ```
 
@@ -165,34 +165,34 @@ func mergeSort(arr []int) []int {
 
 ```golang
 func heapSort(arr []int) []int {
-	n := len(arr)
-	if n <= 1 {
-		return arr
-	}
+    n := len(arr)
+    if n <= 1 {
+        return arr
+    }
 
-	res := make([]int, 0, n)
-	// 构建小顶堆
-	h := &iheap{arr}
-	heap.Init(h)
-	for h.Len() > 0 {
-		res = append(res, heap.Pop(h).(int))
-	}
-	return res
+    res := make([]int, 0, n)
+    // 构建小顶堆
+    h := &iheap{arr}
+    heap.Init(h)
+    for h.Len() > 0 {
+        res = append(res, heap.Pop(h).(int))
+    }
+    return res
 }
 
 // 利用golang标准库实现堆，只需要实现 heap接口的 `Push, Pop`方法即可
 type iheap struct {
-	sort.IntSlice // 默认升序
+    sort.IntSlice // 默认升序
 }
 
 // // 默认升序，倒序的话需要重写 sort.Less 比较器
 // func (h *iheap) Less(i, j int) bool {
-// 	return h.IntSlice[i] > h.IntSlice[j]
+//     return h.IntSlice[i] > h.IntSlice[j]
 // }
 
 // Push(), Pop() 实现container/heap 的接口，不仅要改变元素值，还要改变数组长度，所以receiver用指针
 func (h *iheap) Push(x interface{}) {
-	h.IntSlice = append(h.IntSlice, x.(int))
+    h.IntSlice = append(h.IntSlice, x.(int))
 }
 
 // Pop, 删除堆顶元素
@@ -202,10 +202,10 @@ func (h *iheap) Push(x interface{}) {
 //   - 然后依次从堆顶向下调整整个堆的结构，（一直到堆尾即可），`heapifyDown`
 // go标准库源码：https://golang.org/src/container/heap/heap.go?s=2190:2223#L50
 func (h *iheap) Pop() interface{} {
-	n := h.IntSlice.Len()
-	x := h.IntSlice[n-1]
-	h.IntSlice = h.IntSlice[:n-1]
-	return x
+    n := h.IntSlice.Len()
+    x := h.IntSlice[n-1]
+    h.IntSlice = h.IntSlice[:n-1]
+    return x
 }
 ```
 

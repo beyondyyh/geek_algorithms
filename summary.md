@@ -49,7 +49,11 @@
 - for, while loop -> Iteration
 - 递归Recursion (分治Divide & Conquer, 回溯Backtrace)
 - 搜索Search：深度优先搜索 Depth first search，广度优先搜索 Breadth first search，启发式搜索 A*，  本质是找重复性或递归
-- 动态规划 Dynamic Program，    在解决子问题时发现有所谓的最优解，而且在中间过程可以淘汰次优解，那么可以成为该问题有所谓 `最佳子结构`，可以用动态规划思想。
+- 动态规划 Dynamic Program，    在解决子问题时发现有所谓的最优解，而且在中间过程可以淘汰次优解，那么可以成为该问题有所谓 `最佳子结构`，可以用动态规划的思想。
+  - 基于分治+最优子结构（去重/淘汰），最好、最少、最长，`最xx`之类的问题，首先就要想到动态规划
+  - 动态递推 or 记忆化递归
+  - dp和分治递归没有本质区别
+
 - 二分查找 Binary Search
 - 贪心 Greedy
 - 数学Math，几何Geometry
