@@ -31,8 +31,9 @@ func reverseWords(s string) string {
 }
 
 // 纯手写
+// 思路：1、先去除首位空格，且通过空格切分成字节数组，2、整体reverse，3、reverse each word
 func reverseWords2(s string) string {
-	// trim 两端空格
+	// 1、trim 两端空格，且通过空格切分成字节数组
 	trimSpaces := func(s string) []byte {
 		left, right := 0, len(s)-1
 		for left <= right && s[left] == ' ' {
@@ -56,14 +57,14 @@ func reverseWords2(s string) string {
 		return sb
 	}
 
-	// 反转字符串
+	// 2、反转字符串
 	reverse := func(sb []byte, left, right int) {
 		for ; left < right; left, right = left+1, right-1 {
 			sb[left], sb[right] = sb[right], sb[left]
 		}
 	}
 
-	// 反转每个单词
+	// 3、反转每个单词
 	reverseEachWord := func(sb []byte) {
 		start, end, n := 0, 0, len(sb)
 		for start < n {
