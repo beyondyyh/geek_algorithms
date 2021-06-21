@@ -1,8 +1,6 @@
 package practice
 
-import (
-	"math"
-)
+import "math"
 
 /*
  * @lc app=leetcode.cn id=155 lang=golang
