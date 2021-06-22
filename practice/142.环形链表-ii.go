@@ -20,19 +20,22 @@ package practice
 // 时间复杂度：O(n)
 // 空间复杂度：O(1)
 func detectCycle(head *ListNode) *ListNode {
-	fast, slow := head, head
+	slow, fast := head, head
 	for {
+		// 无环特殊处理
 		if fast == nil || fast.Next == nil {
 			return nil
 		}
-		fast, slow = fast.Next.Next, slow.Next
-		if fast == slow {
+		slow, fast = slow.Next, fast.Next.Next
+		if slow == fast {
 			break
 		}
 	}
+
+	// 快指针重新指向头部
 	fast = head
-	for fast != slow {
-		fast, slow = fast.Next, slow.Next
+	for slow != fast {
+		slow, fast = fast.Next, slow.Next
 	}
 	return fast
 }
