@@ -20,9 +20,7 @@ func search(nums []int, target int) int {
 		mid := left + (right-left)/2
 		if target == nums[mid] {
 			return mid
-		}
-		// 前半段有序，此处用小于等于，为了最后只剩两个数的时候，跟上面逻辑匹配
-		if nums[left] <= nums[mid] {
+		} else if nums[left] <= nums[mid] { // 前半段有序，此处用小于等于，为了最后只剩两个数的时候，跟上面逻辑匹配
 			if nums[left] <= target && target < nums[right] {
 				right = mid - 1
 			} else {
