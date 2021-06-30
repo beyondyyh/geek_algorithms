@@ -1,3 +1,5 @@
+package practice
+
 /*
  * @lc app=leetcode.cn id=24 lang=golang
  *

@@ -66,33 +66,37 @@
 **示例代码：**
 
 ```golang
-func quickSort(arr []int, left, right int) {
-    if len(arr) <= 1 {
-        return
+func quickSort(nums []int, start, end int) []int {
+    // terminator，长度小于等于1说明天然有序
+    if len(nums) <= 1 {
+        return nums
     }
 
-    // 分区操作，返回轴点索引下标
-    var partition func(arr []int, left, right int) int
-    partition = func(arr []int, left, right int) int {
-        pivot := left      // 选取第一个元素作为轴点
-        index := pivot + 1 // 遍历的游标
-        for i := index; i <= right; i++ {
-            if arr[i] < arr[pivot] {
-                arr[i], arr[index] = arr[index], arr[i] // 比轴点小的交换到前面
-                index++
+    // 分，选择一个轴点 pivot，通过一次遍历将小于它的放到它的左侧，大于它的放到他的右侧，最后返回标杆所在的下标。
+    // - start 起始位置的下标
+    // - end 结束位置的下标
+    // returns 轴点所在的下标
+    pratition := func(start, end int) int {
+        pivot := start // 选取第一个元素作为轴点，当然也可以选择最后一个
+        start = start + 1
+        for i := start; i <= end; i++ {
+            if nums[i] <= nums[pivot] {
+                nums[i], nums[start] = nums[start], nums[i] // 比轴点小的交换到前面
+                start++
             }
         }
-        arr[pivot], arr[index-1] = arr[index-1], arr[pivot]
-        return index - 1
+        // 遍历结束之后，把轴点放到正确的位置上，for退出时start多走了一步
+        nums[pivot], nums[start-1] = nums[start-1], nums[pivot]
+        return start - 1
     }
 
-    // recursion
-    if left < right {
-        pivot := partition(arr, left, right)
-        quickSort(arr, left, pivot-1)
-        quickSort(arr, pivot+1, right)
+    // 分治，找到轴点对应的下标，然后把轴点左右两边的数组分别递归调用上面的思想
+    if start < end {
+        pivot := pratition(start, end)
+        quickSort(nums, start, pivot-1)
+        quickSort(nums, pivot+1, end)
     }
-    return
+    return nums
 }
 ```
 
@@ -114,9 +118,10 @@ func quickSort(arr []int, left, right int) {
 
 ```golang
 func mergeSort(arr []int) []int {
+    // 最后切割只剩下一个元素，可以认为是有序的
     n := len(arr)
-    if n == 1 {
-        return arr // 最后切割只剩下一个元素，可以认为是有序的
+    if n <= 1 {
+        return arr
     }
 
     // 合并2个有序数组
@@ -144,11 +149,10 @@ func mergeSort(arr []int) []int {
         return res
     }
 
-      // 切分成左右2部分，分别进行归并排序
+    // 分，切分成左右2部分，分别进行归并排序
     mid := n / 2
-    left := mergeSort(arr[:mid])
-    right := mergeSort(arr[mid:])
-
+    left, right := mergeSort(arr[:mid]), mergeSort(arr[mid:])
+    // 治，2-路归并
     return _merge(left, right)
 }
 ```

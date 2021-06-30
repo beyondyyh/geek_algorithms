@@ -1,3 +1,5 @@
+package practice
+
 /*
  * @lc app=leetcode.cn id=84 lang=golang
  *
@@ -15,7 +17,7 @@ func largestRectangleArea1(heights []int) int {
 		for j := i + 1; j < n-1; j++ {
 			width := j - i + 1
 			minHeight := getMinHeight(i, j, heights)
-			res = max(res, width*height)
+			res = max(res, width*minHeight)
 		}
 	}
 	return res
@@ -106,19 +108,4 @@ func largestRectangleArea(heights []int) int {
 	return maxarea
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 // @lc code=end
-

@@ -74,11 +74,11 @@ func reverseWords2(s string) string {
 			for end < n && sb[end] != ' ' {
 				end++
 			}
-			// 反转单词
+			// 至此，[start,end)是一个完整的单词，反转它
+			// 注意：end此时指向的是空格的位置，所以这里是end-1
 			reverse(sb, start, end-1)
 			// 更新 start、end 去找下一个单词
-			start = end + 1
-			end++
+			start, end = end+1, end+1
 		}
 	}
 

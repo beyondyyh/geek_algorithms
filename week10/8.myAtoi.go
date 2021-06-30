@@ -29,7 +29,7 @@ func myAtoi(s string) int {
 		return 0
 	}
 
-	// 2、如果出现符号字符，仅第 1 个有效，并记录正负，negative=false 默认非负数
+	// 2、如果出现符号字符，仅第 1 个有效，并记录正负，flag=1 代表正，默认正数
 	flag := 1
 	if s[index] == '-' {
 		index++

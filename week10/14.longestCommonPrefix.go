@@ -35,6 +35,9 @@ func longestCommonPrefix1(strs []string) string {
 }
 
 // 纵向扫描
+// 把所有字符串左边对齐，依次比较列上面的字符是否相同
+// 时间复杂度：O(n*k) n是字符串个数，k是最短的字符串长度
+// 时间复杂度：O(1)
 func longestCommonPrefix2(strs []string) string {
 	n := len(strs)
 	if n == 0 {
@@ -42,9 +45,10 @@ func longestCommonPrefix2(strs []string) string {
 	}
 
 	prefix := strs[0]
-	for i, char := range prefix {
+	for i, char := range []byte(prefix) {
 		for j := 1; j < n; j++ {
-			if i == len(strs[j]) || strs[j][i] != byte(char) {
+			// 当前 j 对应的字符串遍历完了，或者当前列上的字符不相同，则返回前面已经遍历过的相同的字符
+			if i == len(strs[j]) || strs[j][i] != char {
 				return prefix[:i]
 			}
 		}

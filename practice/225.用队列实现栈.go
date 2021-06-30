@@ -1,3 +1,5 @@
+package practice
+
 /*
  * @lc app=leetcode.cn id=225 lang=golang
  *
@@ -10,7 +12,7 @@ type MyStack struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() MyStack {
+func NewMyStack() MyStack {
 	return MyStack{
 		queue: []int{},
 	}
