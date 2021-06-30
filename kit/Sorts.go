@@ -14,24 +14,27 @@ func quickSort(arr []int, start, end int) []int {
 	}
 
 	// 分区操作，返回轴点索引下标
-	var partition func(start, end int) int
-	partition = func(start, end int) int {
-		pivot := start    // 选取第一个元素作为轴点
-		start = start + 1 // 遍历的游标
-		for i := start; i <= end; i++ {
+	// 通过一个mark指针，指向小于pivot的集合的最后一个元素，最后把第一个元素和mark指向的元素做交换，进行下一轮。
+	// mark指针开始指向第一个元素，然后开始遍历数组，如果当前元素比pivot大，继续遍历，如果比pivot小，mark指针右移，将mark指向元素和当前遍历元素交换。
+	partition := func(arr []int, start, end int) int {
+		var (
+			mark  = start // 开始指向第一个元素，
+			pivot = start // 选取第一个元素作为轴点
+		)
+		for i := start + 1; i <= end; i++ {
 			if arr[i] < arr[pivot] {
-				arr[i], arr[start] = arr[start], arr[i] // 比轴点小的交换到前面
-				start++
+				mark++
+				arr[mark], arr[i] = arr[i], arr[mark]
 			}
 		}
-		arr[pivot], arr[start-1] = arr[start-1], arr[pivot]
-		// fmt.Printf("start: %d->%d end: %d->%d start:%d pivot: %d->%d  %+v\n", start, arr[start], end, arr[end], start, pivot, arr[pivot], arr)
-		return start - 1
+		arr[start], arr[mark] = arr[mark], arr[start]
+		// fmt.Printf("start: %d->%d end: %d->%d mark:%d pivot: %d->%d  %+v\n", start, arr[start], end, arr[end], mark, pivot, arr[pivot], arr)
+		return mark
 	}
 
 	// recursion
 	if start < end {
-		pivot := partition(start, end)
+		pivot := partition(arr, start, end)
 		// fmt.Printf("pivot:%d->%d arr:%v\n", pivot, arr[pivot], arr)
 		quickSort(arr, start, pivot-1)
 		quickSort(arr, pivot+1, end)

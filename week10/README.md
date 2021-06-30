@@ -12,4 +12,6 @@
 |[8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)|[8.myAtoi.go](8.myAtoi.go)|M|字符串|
 |[344. 反转字符串](https://leetcode-cn.com/problems/reverse-string/)|[344.reverseString.go](344.reverseString.go)|S|双指针、两端夹逼|
 |[541. 反转字符串 II](https://leetcode-cn.com/problems/reverse-string-ii/)|[541.reverseString-ii.go](541.reverseString-ii.go)|S|双指针|
-|[151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)|[151.reverseWords.go](151.reverseWords.go)|M|标准库、deque|
+|[151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)|[151.reverseWords.go](151.reverseWords.go)|M|标准库|
+|[557. 反转字符串中的单词 III](https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/)|[557.reverseWords-iii.go](557.reverseWords-iii.go)|S|双指针|
+|[917. 仅仅反转字母](https://leetcode-cn.com/problems/reverse-only-letters/)|[917.reverseOnlyLetters.go](917.reverseOnlyLetters.go)|S|栈，双指针|
