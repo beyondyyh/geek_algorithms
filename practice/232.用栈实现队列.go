@@ -1,3 +1,5 @@
+package practice
+
 /*
  * @lc app=leetcode.cn id=232 lang=golang
  *
@@ -12,7 +14,7 @@ type MyQueue struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() MyQueue {
+func NewMyQueue() MyQueue {
 	return MyQueue{
 		inStack:  []int{},
 		outStack: []int{},
@@ -68,4 +70,3 @@ func (q *MyQueue) shift() {
  * param_4 := obj.Empty();
  */
 // @lc code=end
-

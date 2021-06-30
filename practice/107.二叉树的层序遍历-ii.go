@@ -1,3 +1,5 @@
+package practice
+
 /*
  * @lc app=leetcode.cn id=107 lang=golang
  *
@@ -15,6 +17,7 @@
  */
 func levelOrderBottom(root *TreeNode) [][]int {
 
+	return nil
 }
-// @lc code=end
 
+// @lc code=end

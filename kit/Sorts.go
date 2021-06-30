@@ -8,32 +8,33 @@ import (
 // 快排
 // 时间复杂度：O(N log(n))，最坏为O(n^2)，不稳定排序
 // 基本思想：归并思想，先选择一个轴点pivot，一次遍历将小于pivot的元素放到左边，大于pivot的放到右边，递归对左右两部分进行快排
-func quickSort(arr []int, left, right int) []int {
+func quickSort(arr []int, start, end int) []int {
 	if len(arr) <= 1 {
 		return arr
 	}
 
 	// 分区操作，返回轴点索引下标
-	var partition func(arr []int, left, right int) int
-	partition = func(arr []int, left, right int) int {
-		pivot := left      // 选取第一个元素作为轴点
-		index := pivot + 1 // 遍历的游标
-		for i := index; i <= right; i++ {
+	var partition func(start, end int) int
+	partition = func(start, end int) int {
+		pivot := start    // 选取第一个元素作为轴点
+		start = start + 1 // 遍历的游标
+		for i := start; i <= end; i++ {
 			if arr[i] < arr[pivot] {
-				arr[i], arr[index] = arr[index], arr[i] // 比轴点小的交换到前面
-				index++
+				arr[i], arr[start] = arr[start], arr[i] // 比轴点小的交换到前面
+				start++
 			}
 		}
-		arr[pivot], arr[index-1] = arr[index-1], arr[pivot]
-		// fmt.Printf("l: %d->%d r: %d->%d index:%d pivot: %d->%d  %+v\n", left, arr[left], right, arr[right], index, pivot, arr[pivot], arr)
-		return index - 1
+		arr[pivot], arr[start-1] = arr[start-1], arr[pivot]
+		// fmt.Printf("start: %d->%d end: %d->%d start:%d pivot: %d->%d  %+v\n", start, arr[start], end, arr[end], start, pivot, arr[pivot], arr)
+		return start - 1
 	}
 
 	// recursion
-	if left < right {
-		pivot := partition(arr, left, right)
-		quickSort(arr, left, pivot-1)
-		quickSort(arr, pivot+1, right)
+	if start < end {
+		pivot := partition(start, end)
+		// fmt.Printf("pivot:%d->%d arr:%v\n", pivot, arr[pivot], arr)
+		quickSort(arr, start, pivot-1)
+		quickSort(arr, pivot+1, end)
 	}
 	return arr
 }

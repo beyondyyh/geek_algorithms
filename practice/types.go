@@ -5,6 +5,11 @@ type ListNode struct {
 	Next *ListNode
 }
 
+type TreeNode struct {
+	Val         int
+	Left, Right *TreeNode
+}
+
 // --- stack 基本实现
 type Stack []interface{}
 
