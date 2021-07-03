@@ -230,6 +230,15 @@ func (h *iheap) Pop() interface{} {
 - 确定遍历顺序，根据dp转移方程进行递推；
 - 举例推导dp数组。
 
+**经典题目分类：**
+
+- 背包问题
+- 打家劫舍
+- 股票问题
+- 子序列问题
+
+<img src="../imgs/dp-subsequence.png" />
+
 ## 练习题
 
 | Title | Code | <span id="Top">Difficulty</span> | Points |
