@@ -237,7 +237,7 @@ func (h *iheap) Pop() interface{} {
 - 股票问题
 - 子序列问题
 
-<img src="../imgs/dp-subsequence.png" />
+<img src="../imgs/dp-subsequence.png" width="500px" />
 
 ## 练习题
 
