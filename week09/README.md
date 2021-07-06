@@ -66,28 +66,31 @@
 **示例代码：**
 
 ```golang
+// 快速排序。不稳定排序 in-place
+// 思路：分治思想的典型应用，首先选择一个标杆（轴点），通过一趟遍历将数据分割成左右两部分，将小于它的放到它的左侧，大于它的放到它的右侧。遍历结束之后标杆所在的位置就是排序之后它应该在的位置。
+// 递归地将左右两部分分别调用快排。
 func quickSort(nums []int, start, end int) []int {
     // terminator，长度小于等于1说明天然有序
     if len(nums) <= 1 {
         return nums
     }
 
-    // 分，选择一个轴点 pivot，通过一次遍历将小于它的放到它的左侧，大于它的放到他的右侧，最后返回标杆所在的下标。
+    // 分，选择第一个元素作为轴点pivot，mark指针开始指向第一个元素，然后开始遍历数组，如果当前元素比pivot大，继续遍历，如果比pivot小，mark指针右移，同时将mark指向元素和当前遍历元素交换。
     // - start 起始位置的下标
-    // - end 结束位置的下标
+    // - end   结束位置的下标
     // returns 轴点所在的下标
     pratition := func(start, end int) int {
+        mark := start  // mark指针开始指向第一个元素
         pivot := start // 选取第一个元素作为轴点，当然也可以选择最后一个
-        start = start + 1
-        for i := start; i <= end; i++ {
-            if nums[i] <= nums[pivot] {
-                nums[i], nums[start] = nums[start], nums[i] // 比轴点小的交换到前面
-                start++
+        for i := start + 1; i <= end; i++ {
+            if nums[i] < nums[pivot] {
+                mark++                                    // mark指针后移一位
+                nums[i], nums[mark] = nums[mark], nums[i] // 同时将比轴点小的交换到前面
             }
         }
-        // 遍历结束之后，把轴点放到正确的位置上，for退出时start多走了一步
-        nums[pivot], nums[start-1] = nums[start-1], nums[pivot]
-        return start - 1
+        // 遍历结束之后，把轴点放到正确的位置上
+        nums[start], nums[mark] = nums[mark], nums[start]
+        return mark
     }
 
     // 分治，找到轴点对应的下标，然后把轴点左右两边的数组分别递归调用上面的思想
@@ -236,6 +239,22 @@ func (h *iheap) Pop() interface{} {
 - 打家劫舍
 - 股票问题
 - 子序列问题
+  - 子序列（不连续）
+    - [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+    - [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/)
+    - [1035. 不相交的线](https://leetcode-cn.com/problems/uncrossed-lines/)
+  - 子序列（连续）
+    - [674. 最长连续递增子序列]
+    - [718. 最长重复子数组]
+    - [53. 最大子序和]
+  - 编辑距离
+    - [392. 判断子序列]
+    - [115. 不同的子序列]
+    - [583. 两个字符串的删除操作]
+    - [72. 编辑距离]
+  - 回文字符串
+    - [647. 回文字串]
+    - [516. 最长回文字串]
 
 <img src="../imgs/dp-subsequence.png" width="500px" />
 
