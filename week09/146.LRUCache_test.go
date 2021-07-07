@@ -42,7 +42,7 @@ func Test_LRUCache(t *testing.T) {
 	// [(1,100), (5,5), (4,4)]
 }
 
-// run: go test -v -run Test_LRUCache
+// run: go test -v -run Test_LRUCache2
 func Test_LRUCache2(t *testing.T) {
 	assert := assert.New(t)
 
