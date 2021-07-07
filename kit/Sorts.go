@@ -8,36 +8,40 @@ import (
 // 快排
 // 时间复杂度：O(N log(n))，最坏为O(n^2)，不稳定排序
 // 基本思想：归并思想，先选择一个轴点pivot，一次遍历将小于pivot的元素放到左边，大于pivot的放到右边，递归对左右两部分进行快排
-func quickSort(arr []int, start, end int) []int {
+func quickSort(arr []int, left, right int) []int {
 	if len(arr) <= 1 {
 		return arr
 	}
 
 	// 分区操作，返回轴点索引下标
-	// 通过一个mark指针，指向小于pivot的集合的最后一个元素，最后把第一个元素和mark指向的元素做交换，进行下一轮。
-	// mark指针开始指向第一个元素，然后开始遍历数组，如果当前元素比pivot大，继续遍历，如果比pivot小，mark指针右移，将mark指向元素和当前遍历元素交换。
-	partition := func(arr []int, start, end int) int {
-		var (
-			mark  = start // 开始指向第一个元素，
-			pivot = start // 选取第一个元素作为轴点
-		)
-		for i := start + 1; i <= end; i++ {
-			if arr[i] < arr[pivot] {
-				mark++
-				arr[mark], arr[i] = arr[i], arr[mark]
+	// 在数组arr的子区间 [left, right] 执行 partition 操作，返回 arr[left] 排序以后应该在的位置
+	// 在遍历过程中保持循环不变量的语义
+	// 1、[left + 1, j] < arr[left]
+	// 2、(j, i] >= arr[left]
+	// 3、交换 arr[left]和arr[j]
+	partition := func(arr []int, left, right int) int {
+		// 选取第一个元素作为轴点
+		pivot := arr[left]
+		j := left
+		for i := left + 1; i <= right; i++ {
+			if arr[i] < pivot {
+				// 小于 pivot 的元素都被交换到前面
+				j++
+				arr[j], arr[i] = arr[i], arr[j]
 			}
 		}
-		arr[start], arr[mark] = arr[mark], arr[start]
-		// fmt.Printf("start: %d->%d end: %d->%d mark:%d pivot: %d->%d  %+v\n", start, arr[start], end, arr[end], mark, pivot, arr[pivot], arr)
-		return mark
+		// 在之前遍历的过程中，满足 [left + 1, j] < pivot，并且 (j, i] >= pivot
+		arr[j], arr[left] = arr[left], arr[j]
+		// 交换以后 [left, j - 1] < pivot, nums[j] = pivot, [j + 1, right] >= pivot
+		return j
 	}
 
 	// recursion
-	if start < end {
-		pivot := partition(arr, start, end)
+	if left < right {
+		pivot := partition(arr, left, right)
 		// fmt.Printf("pivot:%d->%d arr:%v\n", pivot, arr[pivot], arr)
-		quickSort(arr, start, pivot-1)
-		quickSort(arr, pivot+1, end)
+		quickSort(arr, left, pivot-1)
+		quickSort(arr, pivot+1, right)
 	}
 	return arr
 }

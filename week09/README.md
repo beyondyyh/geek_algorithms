@@ -66,40 +66,45 @@
 **示例代码：**
 
 ```golang
-// 快速排序。不稳定排序 in-place
-// 思路：分治思想的典型应用，首先选择一个标杆（轴点），通过一趟遍历将数据分割成左右两部分，将小于它的放到它的左侧，大于它的放到它的右侧。遍历结束之后标杆所在的位置就是排序之后它应该在的位置。
-// 递归地将左右两部分分别调用快排。
-func quickSort(nums []int, start, end int) []int {
-    // terminator，长度小于等于1说明天然有序
-    if len(nums) <= 1 {
-        return nums
+// 快排
+// 时间复杂度：O(N log(n))，最坏为O(n^2)，不稳定排序
+// 基本思想：归并思想，先选择一个轴点pivot，一次遍历将小于pivot的元素放到左边，大于pivot的放到右边，递归对左右两部分进行快排
+func quickSort(arr []int, left, right int) []int {
+    if len(arr) <= 1 {
+        return arr
     }
 
-    // 分，选择第一个元素作为轴点pivot，mark指针开始指向第一个元素，然后开始遍历数组，如果当前元素比pivot大，继续遍历，如果比pivot小，mark指针右移，同时将mark指向元素和当前遍历元素交换。
-    // - start 起始位置的下标
-    // - end   结束位置的下标
-    // returns 轴点所在的下标
-    pratition := func(start, end int) int {
-        mark := start  // mark指针开始指向第一个元素
-        pivot := start // 选取第一个元素作为轴点，当然也可以选择最后一个
-        for i := start + 1; i <= end; i++ {
-            if nums[i] < nums[pivot] {
-                mark++                                    // mark指针后移一位
-                nums[i], nums[mark] = nums[mark], nums[i] // 同时将比轴点小的交换到前面
+    // 分区操作，返回轴点索引下标
+    // 在数组arr的子区间 [left, right] 执行 partition 操作，返回 arr[left] 排序以后应该在的位置
+    // 在遍历过程中保持循环不变量的语义
+    // 1、[left + 1, j] < arr[left]
+    // 2、(j, i] >= arr[left]
+    // 3、交换 arr[left]和arr[j]
+    partition := func(arr []int, left, right int) int {
+        // 选取第一个元素作为轴点
+        pivot := arr[left]
+        j := left
+        for i := left + 1; i <= right; i++ {
+            if arr[i] < pivot {
+                // 小于 pivot 的元素都被交换到前面
+                j++
+                arr[j], arr[i] = arr[i], arr[j]
             }
         }
-        // 遍历结束之后，把轴点放到正确的位置上
-        nums[start], nums[mark] = nums[mark], nums[start]
-        return mark
+        // 在之前遍历的过程中，满足 [left + 1, j] < pivot，并且 (j, i] >= pivot
+        arr[j], arr[left] = arr[left], arr[j]
+        // 交换以后 [left, j - 1] < pivot, nums[j] = pivot, [j + 1, right] >= pivot
+        return j
     }
 
-    // 分治，找到轴点对应的下标，然后把轴点左右两边的数组分别递归调用上面的思想
-    if start < end {
-        pivot := pratition(start, end)
-        quickSort(nums, start, pivot-1)
-        quickSort(nums, pivot+1, end)
+    // recursion
+    if left < right {
+        pivot := partition(arr, left, right)
+        // fmt.Printf("pivot:%d->%d arr:%v\n", pivot, arr[pivot], arr)
+        quickSort(arr, left, pivot-1)
+        quickSort(arr, pivot+1, right)
     }
-    return nums
+    return arr
 }
 ```
 
