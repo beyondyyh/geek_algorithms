@@ -17,7 +17,8 @@ package practice
 // 空间复杂度：O(k) 堆的大小
 
 // 方法三：基于快排的分治思想，此题最优解
-// 时间复杂度：O()
+// 时间复杂度：O(n)
+// 空间复杂度：O(1)
 func findKthLargest(nums []int, k int) int {
 	if k <= 0 || len(nums) == 0 {
 		return 0
