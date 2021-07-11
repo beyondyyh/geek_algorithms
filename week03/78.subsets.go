@@ -115,10 +115,7 @@ func subsets4(nums []int) [][]int {
 	var backtrack func(int, []int)
 	backtrack = func(start int, path []int) {
 		// 没有终止条件，每一步都是合法的
-		// 把临时结果添加到最终结果，注意：临时结果需要复制一份
-		subres := make([]int, len(path))
-		copy(subres, path)
-		res = append(res, subres) // 另一种写法：res = append(res, append([]int{}, path...))
+		res = append(res, append([]int{}, path...))
 		// 选择、处理结果、再撤销选择
 		for i := start; i < len(nums); i++ {
 			path = append(path, nums[i])
