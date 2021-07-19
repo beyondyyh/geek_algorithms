@@ -15,8 +15,8 @@ package practice
  * }
  */
 // 方法一：快慢指针
-// slow, fast起始位置都是head，然后slow每次走一步，fast每次走2步，直到相遇即为x
-// 相遇时，快指针一定是比慢指针多走了n圈，此时再开一个指针指向head，与slow指针一起走再次相遇时，就是入环的交点
+// slow, fast起始位置都是head，然后slow每次走一步，fast每次走2步，直到相遇记为x
+// 相遇时，快指针一定是比慢指针多走了n圈，此时再将fast指针指向head，与slow指针一起走再次相遇时，就是入环的交点
 // 时间复杂度：O(n)
 // 空间复杂度：O(1)
 func detectCycle(head *ListNode) *ListNode {

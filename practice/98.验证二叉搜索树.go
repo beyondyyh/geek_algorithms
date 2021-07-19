@@ -21,6 +21,7 @@ import "math"
 // 1.空树是二叉搜索树
 // 2.左子树小于根节点，右子树大于根节点，以此类推
 // 3.inorder是升序数组（严格递增）
+// 缺点：可能退化为只有右子树的单链表
 func isValidBST(root *TreeNode) bool {
 	preVal := math.MinInt64
 	var isValid func(*TreeNode) bool
