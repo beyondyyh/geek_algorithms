@@ -11,7 +11,7 @@ package practice
 // dp状态定义：dp[i]表示以i下标结尾的最大子序和
 // dp转移方程：dp[i] = max(dp[i-1]+nums[i], nums[i])，nums[i]单独作为一段 或 加到前面一段里，二者较大值
 // dp初始化：dp[0]=nums[0]
-//
+// dp结果：迭代的过程中求得
 func maxSubArray(nums []int) int {
 	n := len(nums)
 	max := func(a, b int) int {
