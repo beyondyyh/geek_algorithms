@@ -8,11 +8,11 @@ package practice
 
 // @lc code=start
 // 动态规划
-// dp状态定义：dp[i]表示nums[0:i]的最长递增子序列
+// dp状态定义：dp[i]表示长度为i，nums[i-1]结尾的最长递增子序列的长度
 // dp转移方程：dp转移方程：dp[i] = max{dp[i], 1+dp[j] for j < i if nums[j] < nums[i]}
-//	i->[0..n), j->[0..i) 只要nums[j] < nums[i]，nums[i] 就可以接在nums[j]的后面形成一个更长的上升子序列
-// dp初始化：dp[0..n] = 1 1个数组的上升子序列长度必然是1
-// 最终结果：res = max(dp[0..n])，以nums[i]结尾的上升子序列的最大值
+//	i->[0..n-1], j->[0..i) 只要nums[j] < nums[i]，nums[i] 就可以接在nums[j]的后面形成一个更长的上升子序列
+// dp初始化：dp[0..n-1] = 1 1个数组的上升子序列长度必然是1
+// 最终结果：res = max(dp[0..n-1])，以nums[i]结尾的上升子序列的最大值
 func lengthOfLIS(nums []int) int {
 	n := len(nums)
 	dp := make([]int, n)
