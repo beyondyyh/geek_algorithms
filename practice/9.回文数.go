@@ -28,7 +28,7 @@ func isPalindromeNum(x int) bool {
 			return false
 		}
 		// 分别去掉最高位和最低位，继续上述比较
-		x = (x % div) / 10 // x%div 去掉最高位，/10 去掉最低位
+		x = (x % div) / 10 // x%div：去掉最高位，/10：去掉最低位
 		div /= 100         // 去掉了2位，所以是100
 	}
 	return true // 循环完说明high和low都相等

@@ -20,7 +20,7 @@ func reverse(x int) int {
 		if res < math.MinInt32/10 || res > math.MaxInt32/10 {
 			return 0
 		}
-		digit := x % 10 // 弹出x末尾数字
+		digit := x % 10 // 弹出x末尾数字，去掉最低位
 		x /= 10         // 舍弃末尾数字，向高位进1
 		res = res*10 + digit
 	}
