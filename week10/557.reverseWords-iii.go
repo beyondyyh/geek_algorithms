@@ -17,10 +17,9 @@ func reverseWordsiii(s string) string {
 
 	// 字节数组
 	sb := []byte(s)
-	// start, end 表示每个单词的开始和结束位置；n 表示字符串长度
-	start, end, n := 0, 0, len(sb)
-	for start < n {
-		for end < n && sb[end] != ' ' {
+	// start, end 表示每个单词的开始和结束位置；
+	for start, end := 0, 0; start < len(sb); {
+		for end < len(sb) && sb[end] != ' ' {
 			end++
 		}
 		// 注意：end此时指向的是空格的位置，所以这里是 end-1
