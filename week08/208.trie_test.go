@@ -6,8 +6,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// run: go test -v -run Test_trie
-func Test_trie(t *testing.T) {
+// run: go test -v -run Test_Trie
+func Test_Trie(t *testing.T) {
 	assert := assert.New(t)
 	trie := Constructor()
 
