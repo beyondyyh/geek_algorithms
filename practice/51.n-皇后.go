@@ -25,7 +25,7 @@ func solveNQueens(n int) [][]string {
 	dfsMarking = func(row int, path []int) {
 		// terminator
 		if row >= n {
-			results = append(results, append([]int{}, path...))
+			results = append(results, append([]int{}, path...)) // important!
 			return
 		}
 
@@ -35,16 +35,9 @@ func solveNQueens(n int) [][]string {
 				continue
 			}
 
-			// update the flags
-			cols[col], pie[row+col], na[row-col] = true, true, true
-			path = append(path, col)
-
-			// drill down
-			dfsMarking(row+1, path)
-
-			// revert state
-			cols[col], pie[row+col], na[row-col] = false, false, false
-			path = path[:len(path)-1]
+			cols[col], pie[row+col], na[row-col] = true, true, true    // update the flags
+			dfsMarking(row+1, append(path, col))                       // drill down
+			cols[col], pie[row+col], na[row-col] = false, false, false // revert state
 		}
 	}
 
@@ -54,8 +47,8 @@ func solveNQueens(n int) [][]string {
 		for _, path := range results {
 			borad := []string{}
 			for _, pos := range path {
-				row := strings.Repeat(".", pos) + "Q" + strings.Repeat(".", n-1-pos)
-				borad = append(borad, row)
+				queens := strings.Repeat(".", pos) + "Q" + strings.Repeat(".", n-1-pos)
+				borad = append(borad, queens)
 			}
 			res = append(res, borad)
 		}
