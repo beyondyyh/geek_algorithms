@@ -120,7 +120,7 @@ func subsets4(nums []int) [][]int {
 		for i := start; i < len(nums); i++ {
 			path = append(path, nums[i])
 			backtrack(i+1, path)
-			path = path[0 : len(path)-1]
+			path = path[:len(path)-1]
 		}
 	}
 
