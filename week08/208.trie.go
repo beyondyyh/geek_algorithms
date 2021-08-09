@@ -10,8 +10,8 @@ package week08
 
 // Trie是便于word插入和查找的数据结构
 type Trie struct {
-	children [26]*Trie
-	isLeaf   bool
+	children [26]*Trie // 26个字母映射表
+	isLeaf   bool      // 该节点是否是一个单词的结尾
 }
 
 func Constructor() *Trie {
@@ -21,32 +21,31 @@ func Constructor() *Trie {
 func (t *Trie) Insert(word string) {
 	node := t
 	for _, char := range word {
-		char -= 'a' // ASCII code
-		if node.children[char] == nil {
-			node.children[char] = &Trie{}
+		if node.children[char-'a'] == nil {
+			node.children[char-'a'] = &Trie{}
 		}
-		node = node.children[char] // 一层层进入子节点
+		node = node.children[char-'a'] // 一层层进入子节点
 	}
 	node.isLeaf = true // 最终的子节点
 }
 
-func (t *Trie) SearchPrefix(prefix string) *Trie {
+func (t *Trie) searchPrefix(prefix string) *Trie {
 	node := t
 	for _, char := range prefix {
-		char -= 'a'
-		if node.children[char] == nil {
+		node = node.children[char-'a']
+		if node == nil {
 			return nil
 		}
-		node = node.children[char]
 	}
 	return node
 }
 
 func (t *Trie) Search(word string) bool {
-	node := t.SearchPrefix(word)
+	node := t.searchPrefix(word)
 	return node != nil && node.isLeaf
 }
 
 func (t *Trie) StartsWith(prefix string) bool {
-	return t.SearchPrefix(prefix) != nil
+	node := t.searchPrefix(prefix)
+	return node != nil
 }
