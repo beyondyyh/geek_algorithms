@@ -10,3 +10,9 @@ type DListNode struct {
 	Prev *ListNode
 	Next *ListNode
 }
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
