@@ -83,3 +83,84 @@ func mergeSort(nums []int) []int {
 	// 治，合二为一
 	return merge(left, right)
 }
+
+// in-place 归并排序，可以排序指定区间
+func mergeSort2(nums []int, left, right int) {
+	// 合并 [left, mid] 和 [mid+1, right] 2个有序区间
+	merge := func(nums []int, left, mid, right int) {
+		// 中间数组，存放 [left, right] 区间合并后的有序数组
+		temp := make([]int, 0, right-left+1)
+		i, j := left, mid+1
+		for i <= mid && j <= right {
+			if nums[i] <= nums[j] {
+				temp = append(temp, nums[i])
+				i++
+			} else {
+				temp = append(temp, nums[j])
+				j++
+			}
+		}
+		// 处理 [left, mid] 未遍历完的情况
+		if i <= mid {
+			temp = append(temp, nums[i:mid+1]...) // slice的操作是前闭后开区间，所以end要+1
+		}
+		// 处理 [mid+1, right] 未遍历完的情况
+		if j <= right {
+			temp = append(temp, nums[j:right+1]...) // slice的操作是前闭后开区间，所以end要+1
+		}
+		// 将 temp数组 放回nums[left, right]中，in-place的排序
+		for k := 0; k < len(temp); k++ {
+			nums[left+k] = temp[k]
+		}
+	}
+
+	// 主流程，terminator, 一分为二, 合二为一
+	if right <= left {
+		return
+	}
+	mid := (left + right) >> 1
+	mergeSort2(nums, left, mid)
+	mergeSort2(nums, mid+1, right)
+	merge(nums, left, mid, right)
+}
+
+// in-place 归并排序，可以排序指定区间
+func mergeSort3(nums []int, left, right int) {
+	// 合并 [left, mid] 和 [mid+1, right] 2个有序区间
+	merge := func(nums []int, left, mid, right int) {
+		// 中间数组，存放 [left, right] 区间合并后的有序数组
+		temp := make([]int, right-left+1)
+		i, j, k := left, mid+1, 0
+		for i <= mid && j <= right {
+			if nums[i] <= nums[j] {
+				temp[k] = nums[i]
+				i++
+			} else {
+				temp[k] = nums[j]
+				j++
+			}
+			k++
+		}
+		// 处理 [left, mid] 未遍历完的情况
+		for ; i <= mid; i, k = i+1, k+1 {
+			temp[k] = nums[i]
+		}
+		// 处理 [mid+1, right] 未遍历完的情况
+		for ; j <= right; j, k = j+1, k+1 {
+			temp[k] = nums[j]
+		}
+		// 将 temp数组 放回nums[left, right]中，in-place的排序
+		for p := 0; p < len(temp); p++ {
+			nums[left+p] = temp[p]
+		}
+	}
+
+	// 主流程，terminator, 一分为二, 合二为一
+	if right <= left {
+		return
+	}
+	mid := (left + right) >> 1
+	mergeSort3(nums, left, mid)
+	mergeSort3(nums, mid+1, right)
+	merge(nums, left, mid, right)
+}
