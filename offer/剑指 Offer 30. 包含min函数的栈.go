@@ -53,13 +53,6 @@ func (s *MinStack) Min() int {
 	return s.helper[len(s.helper)-1]
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 /**
  * Your MinStack object will be instantiated and called as such:
  * obj := Constructor();
