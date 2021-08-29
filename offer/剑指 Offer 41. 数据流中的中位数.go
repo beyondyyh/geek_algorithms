@@ -33,34 +33,35 @@ import "container/heap"
 // 4. 整个过程我们需要维护两个地方：两个堆的 size() 最大只能相差 1；大顶堆的 top() 必须小于等于小顶堆的 top()。
 
 type MedianFinder struct {
-	maxH iMaxHeap // 左手一个大顶堆，保存较小的一半
-	minH iMinHeap // 右手一个小顶堆，保存较大的一半
+	minH iMinHeap // 小顶堆，保存较大的一半
+	maxH iMaxHeap // 大顶堆，保存较小的一半
 }
 
 // func Constructor() MedianFinder {
 func NewMedianFinder() *MedianFinder {
-	maxH, minH := iMaxHeap{}, iMinHeap{}
-	heap.Init(&maxH)
+	minH, maxH := iMinHeap{}, iMaxHeap{}
 	heap.Init(&minH)
+	heap.Init(&maxH)
 	finder := &MedianFinder{
-		maxH: maxH,
 		minH: minH,
+		maxH: maxH,
 	}
 	return finder
 }
 
 func (mf *MedianFinder) AddNum(num int) {
-	heap.Push(&mf.maxH, num)
-	heap.Push(&mf.minH, heap.Pop(&mf.maxH))
-	// 如果不平衡则调整
-	if mf.minH.Len() > mf.maxH.Len() {
+	if mf.minH.Len() != mf.maxH.Len() {
+		heap.Push(&mf.minH, num)
 		heap.Push(&mf.maxH, heap.Pop(&mf.minH))
+	} else {
+		heap.Push(&mf.maxH, num)
+		heap.Push(&mf.minH, heap.Pop(&mf.maxH))
 	}
 }
 
 func (mf *MedianFinder) FindMedian() float64 {
 	if mf.minH.Len() == mf.maxH.Len() {
-		return float64(mf.maxH.Peek()+mf.minH.Peek()) * 0.5
+		return float64(mf.minH.Peek()+mf.maxH.Peek()) * 0.5
 	}
-	return float64(mf.maxH.Peek())
+	return float64(mf.minH.Peek())
 }

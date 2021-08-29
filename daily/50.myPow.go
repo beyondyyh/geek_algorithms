@@ -29,10 +29,10 @@ func myPow(x float64, n int) float64 {
 		}
 		// current logic & drill down
 		half := fastPow(x, n/2) // n/2下取整
-		if n&1 == 0 {           // 偶数
+		if n&1 == 0 {           // 偶数even
 			return half * half
 		}
-		return half * half * x // 奇数
+		return half * half * x // 奇数odd
 	}
 
 	if n >= 0 {

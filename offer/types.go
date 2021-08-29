@@ -33,7 +33,7 @@ func max(a, b int) int {
 	return b
 }
 
-// int类型小顶堆
+// int类型小顶堆，sort.IntSlice 默认升序，即小顶堆
 type iMinHeap struct{ sort.IntSlice }
 
 // 实现 container/Heap 接口的 Push,Pop 方法
@@ -53,8 +53,12 @@ func (h iMinHeap) Peek() int {
 	return h.IntSlice[0]
 }
 
-// int类型大顶堆，sort.IntSlice 默认升序，即小顶堆
+// int类型大顶堆，sort.IntSlice 默认升序，即小顶堆，大顶堆需要重新Less方法
 type iMaxHeap struct{ sort.IntSlice }
+
+func (h iMaxHeap) Less(i, j int) bool {
+	return h.IntSlice[i] > h.IntSlice[j]
+}
 
 // 实现 container/Heap 接口的 Push,Pop 方法
 func (h *iMaxHeap) Push(x interface{}) {
