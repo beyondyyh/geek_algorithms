@@ -30,6 +30,12 @@ func Test_TreeNode(t *testing.T) {
 			expect: []int{1, 2, 4, 5, 3, 6, 7},
 		},
 		{
+			name:   "x1-2-2",
+			nums:   []int{1, 2, 3, 4, 5, 6, 7},
+			method: PreorderIter2,
+			expect: []int{1, 2, 4, 5, 3, 6, 7},
+		},
+		{
 			name:   "x2-1",
 			nums:   []int{1, 2, 3, 4, 5, 6, 7},
 			method: Inorder,
@@ -39,6 +45,12 @@ func Test_TreeNode(t *testing.T) {
 			name:   "x2-2",
 			nums:   []int{1, 2, 3, 4, 5, 6, 7},
 			method: InorderIter,
+			expect: []int{4, 2, 5, 1, 6, 3, 7},
+		},
+		{
+			name:   "x2-2-2",
+			nums:   []int{1, 2, 3, 4, 5, 6, 7},
+			method: InorderIter2,
 			expect: []int{4, 2, 5, 1, 6, 3, 7},
 		},
 		{

@@ -183,12 +183,10 @@ func PreorderIter(root *TreeNode) []int {
 	res := []int{}
 	cur := root
 	for cur != nil || stack.Len() > 0 {
-		for cur != nil {
+		for ; cur != nil; cur = cur.Left {
 			res = append(res, cur.Val) // visited
 			stack.PushBack(cur)
-			cur = cur.Left
 		}
-
 		// fmt.Printf("s:%+v\n", showStack(stack))
 		// 栈顶元素，= stack.Peek()
 		top := stack.Back()
@@ -202,6 +200,22 @@ func PreorderIter(root *TreeNode) []int {
 	return res
 }
 
+// preorder 不用系统库，自己维护一个栈
+func PreorderIter2(root *TreeNode) []int {
+	res := []int{}
+	cur, stack := root, []*TreeNode{}
+	for cur != nil || len(stack) > 0 {
+		for ; cur != nil; cur = cur.Left { // 左子树，一插到底
+			res = append(res, cur.Val)
+			stack = append(stack, cur) // Push
+		}
+		// 转向右子树
+		cur = stack[len(stack)-1].Right // Peek栈顶节点
+		stack = stack[:len(stack)-1]    // Pop
+	}
+	return res
+}
+
 // 中序：左->根->右，4251637
 func InorderIter(root *TreeNode) []int {
 	stack := list.New()
@@ -210,9 +224,8 @@ func InorderIter(root *TreeNode) []int {
 	cur := root
 	for cur != nil || stack.Len() != 0 {
 		// 左子树，一插到底
-		for cur != nil {
+		for ; cur != nil; cur = cur.Left {
 			stack.PushBack(cur)
-			cur = cur.Left
 		} // 124
 
 		// 栈顶元素
@@ -221,6 +234,22 @@ func InorderIter(root *TreeNode) []int {
 		res = append(res, cur.Val)
 		cur = cur.Right
 		stack.Remove(top)
+	}
+	return res
+}
+
+// inorder 左->根->右
+func InorderIter2(root *TreeNode) []int {
+	res := []int{}
+	cur, stack := root, []*TreeNode{}
+	for cur != nil || len(stack) > 0 {
+		for ; cur != nil; cur = cur.Left { // 左子树，一插到底
+			stack = append(stack, cur)
+		}
+		cur = stack[len(stack)-1]  // 栈顶节点
+		res = append(res, cur.Val) // 根
+		cur = cur.Right
+		stack = stack[:len(stack)-1] // Pop
 	}
 	return res
 }
@@ -234,9 +263,8 @@ func PostorderIter(root *TreeNode) []int {
 	var lastVisit *TreeNode = nil
 	for cur != nil || stack.Len() != 0 {
 		// 左子树，一插到底
-		for cur != nil {
+		for ; cur != nil; cur = cur.Left {
 			stack.PushBack(cur)
-			cur = cur.Left
 		}
 	}
 
