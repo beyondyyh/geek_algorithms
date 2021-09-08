@@ -1,7 +1,6 @@
 package kit
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -25,7 +24,7 @@ func Test_quickSort(t *testing.T) {
 
 	assert := assert.New(t)
 	for _, c := range cases {
-		fmt.Println(c.nums)
+		// fmt.Println(c.nums)
 		nums := c.nums
 		start, end := 0, len(nums)-1
 		assert.Equal(c.expect, quickSort(nums, start, end), c.name)
@@ -40,7 +39,7 @@ func Test_mergeSort(t *testing.T) {
 		expect []int
 	}{
 		{
-			name:   "mergeSort-1",
+			name:   "mergeSort2-1",
 			nums:   []int{2, 1, 5, 3, 4, 6, 7, 0},
 			expect: []int{0, 1, 2, 3, 4, 5, 6, 7},
 		},
@@ -49,6 +48,30 @@ func Test_mergeSort(t *testing.T) {
 	assert := assert.New(t)
 	for _, c := range cases {
 		assert.Equal(c.expect, mergeSort(c.nums), c.name)
+	}
+}
+
+// run: go test -v -run Test_mergeSort2
+func Test_mergeSort2(t *testing.T) {
+	cases := []struct {
+		name   string
+		nums   []int
+		expect []int
+	}{
+		{
+			name:   "mergeSort-1",
+			nums:   []int{2, 1, 5, 3, 4, 6, 7, 0},
+			expect: []int{0, 1, 2, 3, 4, 5, 6, 7},
+		},
+	}
+
+	assert := assert.New(t)
+	for _, c := range cases {
+		// fmt.Println(c.nums)
+		nums := c.nums
+		left, right := 0, len(nums)-1
+		mergeSort2(nums, left, right)
+		assert.Equal(c.expect, nums, c.name)
 	}
 }
 

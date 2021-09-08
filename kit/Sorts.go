@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-// 快排
+// 快速排序，指定排序区间 in-place
 // 时间复杂度：O(N log(n))，最坏为O(n^2)，不稳定排序
 // 基本思想：归并思想，先选择一个轴点pivot，一次遍历将小于pivot的元素放到左边，大于pivot的放到右边，递归对左右两部分进行快排
 func quickSort(arr []int, left, right int) []int {
@@ -46,7 +46,7 @@ func quickSort(arr []int, left, right int) []int {
 	return arr
 }
 
-// 归并排序
+// 归并排序，整体排序
 // 时间复杂度：O(N log(n))，稳定排序
 // 基本思想：利用归并的思想，采用分治的策略
 // 分治：分是将大问题分成一些小问题然后递归求解，而治则是将分的阶段得到的答案“合并”在一起
@@ -61,7 +61,6 @@ func mergeSort(arr []int) []int {
 	_merge = func(left, right []int) []int {
 		m, n := len(left), len(right)
 		res := make([]int, 0, m+n)
-
 		var i, j int
 		for i < m && j < n {
 			if left[i] <= right[j] {
@@ -125,4 +124,45 @@ func (h *iheap) Pop() interface{} {
 	x := h.IntSlice[n-1]
 	h.IntSlice = h.IntSlice[:n-1]
 	return x
+}
+
+// 归并排序，指定排序区间 in-place
+// 时间复杂度：O(N log(n))，稳定排序
+func mergeSort2(nums []int, left, right int) {
+	// 合并 [left, mid] 和 [mid+1, right] 2个有序区间
+	merge := func(nums []int, left, mid, right int) {
+		// 中间数组，存放 [left, right] 区间合并后的有序数组
+		temp := make([]int, 0, right-left+1)
+		i, j := left, mid+1
+		for i <= mid && j <= right {
+			if nums[i] <= nums[j] {
+				temp = append(temp, nums[i])
+				i++
+			} else {
+				temp = append(temp, nums[j])
+				j++
+			}
+		}
+		// 处理 [left, mid] 未遍历完的情况
+		for ; i <= mid; i++ {
+			temp = append(temp, nums[i])
+		}
+		// 处理 [mid+1, right] 未遍历完的情况
+		for ; j <= right; j++ {
+			temp = append(temp, nums[j])
+		}
+		// 有序数组 temp 拷贝回 nums[left, right] 区间
+		for k := 0; k < len(temp); k++ {
+			nums[left+k] = temp[k]
+		}
+	}
+
+	// main process
+	if left >= right { // 递归终止条件
+		return
+	}
+	mid := (left + right) >> 1
+	mergeSort2(nums, left, mid)
+	mergeSort2(nums, mid+1, right)
+	merge(nums, left, mid, right)
 }

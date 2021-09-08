@@ -45,7 +45,7 @@ func myAtoi(s string) int {
 			break
 		}
 		// 本来应该是 res * 10 + digit > Integer.MAX_VALUE
-		// 但是 *10 和 + digit 都有可能越界，所有都移动到右边去就可以了。
+		// 但是 *10 和 + digit 都有可能越界，所以都移动到右边去就可以了。
 		if res > (math.MaxInt32-digit)/10 {
 			if flag == 1 {
 				return math.MaxInt32
