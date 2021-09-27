@@ -25,6 +25,6 @@
 |[72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)|[72.minDistance.go](72.minDistance.go)|H|dp、删除最后一个字符比较|
 |[5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)|[5.longestPalindrome.go](5.longestPalindrome.go)|M|中心扩展法|
 |字符串+DP问题|-|-|dp|
-|[正则表达式](.)|-|-|-|
+|[正则表达式](https://leetcode-cn.com/problems/regular-expression-matching/)|[10.正则表达式匹配.go](10.正则表达式匹配.go)|-|-|
 |[通配符匹配](.)|-|-|-|
 |[不同的子序列](.)|-|-|-|

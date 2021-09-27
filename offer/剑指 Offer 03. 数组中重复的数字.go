@@ -24,7 +24,7 @@ func findRepeatNumber(nums []int) int {
 }
 
 // 原地交换
-// 1. 遍历数组 numsnums ，设索引初始值为 i = 0 :
+// 1. 遍历数组 nums，设索引初始值 i=0:
 //     若 nums[i] = i：说明此数字已在对应索引位置，无需交换，因此跳过；
 //     若 nums[nums[i]] = nums[i]：代表索引 nums[i] 处和索引 i 处的元素值都为 nums[i] ，即找到一组重复值，返回此值 nums[i]；
 //     否则：交换索引为 i 和 nums[i] 的元素值，将此数字交换至对应索引位置。
