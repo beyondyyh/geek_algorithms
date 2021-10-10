@@ -10,17 +10,17 @@ package offer
 // @lc: https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof/
 
 // 双指针left，right，分别从两端夹逼
-// left如果为奇数一直往右移，right如果为偶数左移，知道二者相遇
+// left如果为奇数一直往右移，right如果为偶数左移，直到二者相遇
 // 否则交换left和right .
 // 重复上述操作，直到 left == right 退出
 // 时间复杂度：O(n)
 func exchange(nums []int) []int {
 	left, right := 0, len(nums)-1
 	for left < right {
-		for left < right && (nums[left]&1 == 1) { // left为奇数，一直右移
+		for left < right && (nums[left]&1 == 1) { // left为奇数odd，一直右移
 			left++
 		}
-		for left < right && (nums[right]&1 == 0) { // right为偶数，一直左移
+		for left < right && (nums[right]&1 == 0) { // right为偶数even，一直左移
 			right--
 		}
 		nums[left], nums[right] = nums[right], nums[left] // 否则交换

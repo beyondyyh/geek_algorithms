@@ -45,5 +45,5 @@ func isBalanced(root *TreeNode) bool {
 	}
 	// 如果：左右子树高度差小于等于1，并且所有子树都平衡，则此树平衡
 	left, right := depth(root.Left), depth(root.Right)
-	return int(math.Abs(float64(left)-float64(right))) <= 1 && isBalanced(root.Left) && isBalanced(root.Right)
+	return int(math.Abs(float64(left-right))) <= 1 && isBalanced(root.Left) && isBalanced(root.Right)
 }
