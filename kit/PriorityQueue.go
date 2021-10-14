@@ -1,5 +1,74 @@
 package kit
 
+// type Entry interface{}
+
+// type LessFunc func(p, q Entry) bool
+
+// type priorityQueueImpl struct {
+// 	data []Entry
+// 	less LessFunc
+// }
+
+// type priorityQueue struct {
+// 	priorityQueueImpl
+// }
+
+// // Len 实现 sort.Interface 的Len接口方法
+// func (pq priorityQueueImpl) Len() int { return len(pq.data) }
+
+// // Swap 实现 sort.Interface 的Swap接口方法
+// func (pq priorityQueueImpl) Swap(i, j int) {
+// 	pq.data[i], pq.data[j] = pq.data[j], pq.data[i]
+// }
+
+// // Less 实现 sort.Interface 的Less接口方法
+// func (pq priorityQueueImpl) Less(i, j int) bool {
+// 	p, q := pq.data[i], pq.data[j]
+// 	return pq.less(p, q)
+// }
+
+// // Push 实现 Push 接口方法，receiver是指针
+// func (pq *priorityQueueImpl) Push(x interface{}) {
+// 	(*pq).data = append((*pq).data, x.(Entry))
+// }
+
+// // Pop 实现 Pop 接口方法，receiver是指针
+// func (pq *priorityQueueImpl) Pop() interface{} {
+// 	old := (*pq)
+// 	n := old.Len()
+// 	x := old.data[n-1]
+// 	(*pq).data = (*pq).data[:n-1]
+// 	return x
+// }
+
+// // NewPriorityQueue 创建一个优先队列，传入一个比较器
+// func NewPriorityQueue(comparator LessFunc) *priorityQueue {
+// 	pq := priorityQueue{
+// 		priorityQueueImpl: priorityQueueImpl{
+// 			data: make([]Entry, 0),
+// 			less: comparator,
+// 		},
+// 	}
+// 	heap.Init(&pq.priorityQueueImpl)
+// 	return &pq
+// }
+
+// func (pq *priorityQueue) Push(x Entry) {
+// 	heap.Push(&pq.priorityQueueImpl, x)
+// }
+
+// func (pq *priorityQueue) Pop() Entry {
+// 	return heap.Pop(&pq.priorityQueueImpl).(Entry)
+// }
+
+// func (pq *priorityQueue) Peek() Entry {
+// 	return pq.priorityQueueImpl.data[0]
+// }
+
+// func (pq *priorityQueue) Len() int {
+// 	return pq.priorityQueueImpl.Len()
+// }
+
 // 基于heap接口实现一个二维数组的优先队列，大顶堆
 
 type Item struct {
