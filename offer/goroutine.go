@@ -1,4 +1,4 @@
-package main
+package offer
 
 import (
 	"context"
@@ -50,5 +50,4 @@ func SearchTarget(ctx context.Context, data []int, target int, resultChan chan b
 			return
 		}
 	}
-
 }
