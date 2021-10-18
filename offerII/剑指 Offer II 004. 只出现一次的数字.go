@@ -1,16 +1,18 @@
-package offer
+package offerII
 
-// 剑指 Offer 56 - II. 数组中数字出现的次数 II
-// 在一个数组 nums 中除一个数字只出现一次之外，其他数字都出现了三次。请找出那个只出现一次的数字。
-
+// 剑指 Offer II 004. 只出现一次的数字
+// 给你一个整数数组 nums ，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次 。请你找出并返回那个只出现了一次的元素。
 // 示例 1：
-// 输入：nums = [3,4,3,3]
-// 输出：4
-
+// 输入：nums = [2,2,3,2]
+// 输出：3
 // 示例 2：
-// 输入：nums = [9,1,7,9,7,9,7]
-// 输出：1
-// @lc: https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/
+// 输入：nums = [0,1,0,1,0,1,100]
+// 输出：100
+
+// 提示：
+// 1 <= nums.length <= 3 * 104
+// -231 <= nums[i] <= 231 - 1
+// nums 中，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次
 
 // 解题思路：位运算
 // 位运算： x&1：得到x最低位值； x&(~x) = 0：x与上x取反，结果为0；x&(x-1)：去掉x最低位的1
@@ -21,7 +23,7 @@ package offer
 
 // 时间复杂度：O(n)，其中n为数组 nums 的长度；遍历数组占用 O(n) ，每轮中的常数个位运算操作占用O(1) 。
 // 空间复杂度：O(1)，数组 counts 长度恒为 32，占用常数大小的额外空间
-func singleNumberII(nums []int) int {
+func singleNumber(nums []int) int {
 	counts := [32]int{}
 	// 1.统计所有位上的1个数总和
 	for _, num := range nums {
