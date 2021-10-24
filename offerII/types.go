@@ -23,3 +23,17 @@ func max(a, b int) int {
 	}
 	return b
 }
+
+type Stack []interface{}
+
+func (s *Stack) Len() int           { return len(*s) }
+func (s *Stack) Push(x interface{}) { *s = append(*s, x) }
+func (s *Stack) Pop() interface{}   { x := (*s)[s.Len()-1]; *s = (*s)[:s.Len()-1]; return x }
+func (s *Stack) IsEmpty() bool      { return s.Len() == 0 }
+
+type Queue []interface{}
+
+func (q *Queue) Len() int           { return len(*q) }
+func (q *Queue) Push(x interface{}) { *q = append(*q, x) }
+func (q *Queue) Pop() interface{}   { x := (*q)[0]; *q = (*q)[1:]; return x }
+func (q *Queue) IsEmpty() bool      { return q.Len() == 0 }
