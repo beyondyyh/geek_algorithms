@@ -19,10 +19,8 @@ package practice
 // 空间复杂度：O(n)
 func isPalindrome1(head *ListNode) bool {
 	vals := []int{}
-	cur := head
-	for cur != nil {
+	for cur := head; cur != nil; cur = cur.Next {
 		vals = append(vals, cur.Val)
-		cur = cur.Next
 	}
 	for i, j := 0, len(vals)-1; i < j; i, j = i+1, j-1 {
 		if vals[i] != vals[j] {
@@ -36,8 +34,7 @@ func isPalindrome1(head *ListNode) bool {
 // 时间复杂度：O(n)
 // 空间复杂度：O(1)
 func isPalindrome2(head *ListNode) bool {
-	var pre *ListNode = nil
-	slow, fast := head, head
+	var slow, fast, pre *ListNode = head, head, nil
 	for fast != nil && fast.Next != nil {
 		fast = fast.Next.Next // 快指针一次走2步
 		// 反转慢指针走过的路径，以下4行代码与 反转单链表 一模一样
