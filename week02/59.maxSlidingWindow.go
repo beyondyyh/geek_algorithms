@@ -34,7 +34,8 @@ func maxSlidingWindow1(nums []int, k int) []int {
 	// 窗口个数
 	ans := make([]int, 0, n-k+1)
 	for i := 0; i < n-k+1; i++ {
-		window := nums[i : i+k]
+		window := make([]int, k)
+		copy(window, nums[i:i+k]) // 需要copy一份，快排是in-place的会改变nums的结构
 		ans = append(ans, max(window))
 	}
 	return ans
