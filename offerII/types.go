@@ -10,6 +10,11 @@ type DListNode struct {
 	Next, Prev *ListNode
 }
 
+type TreeNode struct {
+	Val         int
+	Left, Right *TreeNode
+}
+
 func min(a, b int) int {
 	if a < b {
 		return a
