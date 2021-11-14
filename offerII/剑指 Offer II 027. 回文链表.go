@@ -13,7 +13,7 @@ package offerII
 // 方法一：遍历将链表Vals放入数组，然后判断数组是否为回文
 // 时间复杂度：O(n)
 // 空间复杂度：O(n)
-func isPalindrome(head *ListNode) bool {
+func isPalindromeLinkedList(head *ListNode) bool {
 	vals := []int{}
 	for cur := head; cur != nil; cur = cur.Next {
 		vals = append(vals, cur.Val)
@@ -30,7 +30,7 @@ func isPalindrome(head *ListNode) bool {
 // 处理技巧，在快慢指针运动的过程中可以顺手把前半段给翻转了
 // 时间复杂度：O(n)
 // 空间复杂度：O(1)
-func isPalindrome2(head *ListNode) bool {
+func isPalindromeLinkedList2(head *ListNode) bool {
 	var slow, fast, pre *ListNode = head, head, nil
 	for fast != nil && fast.Next != nil {
 		fast = fast.Next.Next

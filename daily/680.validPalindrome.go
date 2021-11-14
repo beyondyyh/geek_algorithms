@@ -18,21 +18,19 @@ func validPalindrome(s string) bool {
 		return true
 	}
 
-	// isPalindrome 验证s[begin, end]是否是回文字符串
-	var isPalindrome func(string, int, int) bool
-	isPalindrome = func(s string, begin, end int) bool {
-		for begin < end {
-			if s[begin] != s[end] {
+	// isPalindrome 验证s[left, right]是否是回文字符串
+	isPalindrome := func(s string, left, right int) bool {
+		for left < right {
+			if s[left] != s[right] {
 				return false
 			}
-			begin++
-			end--
+			left++
+			right--
 		}
 		return true
 	}
 
-	left, right := 0, n-1
-	for left < right {
+	for left, right := 0, n-1; left < right; {
 		if s[left] == s[right] { // 1. 左右指针的元素相同时，继续两端夹逼
 			left++
 			right--
