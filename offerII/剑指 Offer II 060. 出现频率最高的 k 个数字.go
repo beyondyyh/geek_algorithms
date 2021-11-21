@@ -1,76 +1,79 @@
-package week02
+package offerII
 
-import (
-	"container/heap"
-	"fmt"
-)
+import "container/heap"
 
-// 347. 前 K 个高频元素
-// 给定一个非空的整数数组，返回其中出现频率前 k 高的元素。
+// 剑指 Offer II 060. 出现频率最高的 k 个数字
+// 给定一个整数数组 nums 和一个整数 k ，请返回其中出现频率前 k 高的元素。可以按 任意顺序 返回答案。
+
 // 示例 1:
 // 输入: nums = [1,1,1,2,2,3], k = 2
 // 输出: [1,2]
-// @leetcode: https://leetcode-cn.com/problems/top-k-frequent-elements/
+// 示例 2:
+// 输入: nums = [1], k = 1
+// 输出: [1]
+// 提示：
+// 1 <= nums.length <= 105
+// k 的取值范围是 [1, 数组中不相同的元素的个数]
+// 题目数据保证答案唯一，换句话说，数组中前 k 个高频元素的集合是唯一的
+// 进阶：所设计算法的时间复杂度 必须 优于 O(n log n) ，其中 n 是数组大小。
+// @lc: https://leetcode-cn.com/problems/g5c51o/
+
+type pair struct {
+	num int // 元素
+	cnt int // 出现的次数
+}
 
 // 方法一：小顶堆
 // 先遍历nums用haspmap统计元素出现次数，然后维护一个长度为k的小顶堆
-// 遍历「出现次数数组」：
-// 如果堆的元素个数小于 k，就可以直接插入堆中；
-// 如果堆的元素个数等于 k，则检查堆顶与当前出现次数的大小。如果堆顶更大，说明至少有 k个数字的出现次数比当前值大，故舍弃当前值；否则，就弹出堆顶，并将当前值插入堆中。
 // 时间复杂度：O(NlogK) n为数组长度。遍历获得map为O(n)，每次pop需要heapifyDown为O(logK)，所以总共为O(NlogK)
 // 空间复杂度：O(N)。哈希表的大小为 O(N)，堆的大小为 O(k)，共计为 O(N)
 func topKFrequent(nums []int, k int) []int {
-	frequency := map[int]int{}
+	freq := map[int]int{}
 	for _, num := range nums {
-		frequency[num]++
+		freq[num]++
 	}
-	fmt.Printf("frequency: %+v\n", frequency)
 
-	// 维护长度为k的小顶堆
-	h := &Iheap{}
-	heap.Init(h)
-	for num, count := range frequency {
-		heap.Push(h, [2]int{num, count})
+	h := iheap{}
+	heap.Init(&h)
+	for num, cnt := range freq {
+		heap.Push(&h, pair{num: num, cnt: cnt})
 		if h.Len() > k {
-			heap.Pop(h)
+			heap.Pop(&h)
 		}
 	}
-	fmt.Printf("heap: %+v\n", *h)
 
-	// 最大的放最前面，所以从后往前追加
-	ans := make([]int, k)
+	// 倒叙输出，最大达放在数组头部
+	res := make([]int, k)
 	for ; k > 0; k-- {
-		ans[k-1] = heap.Pop(h).([2]int)[0]
+		res[k-1] = heap.Pop(&h).(pair).num
 	}
-	return ans
+	return res
 }
 
-// ---------二维数组小顶堆的实现---------
-// [2]int{元素, 出现的次数}
-type Iheap [][2]int
+// 小顶堆，
+type iheap []pair
 
-// 实现container/heap interface{}内嵌的sort接口
-func (h Iheap) Len() int           { return len(h) }
-func (h Iheap) Less(i, j int) bool { return h[i][1] < h[j][1] } // 比较次数，小顶堆
-func (h Iheap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+// type Interface interface {
+// 	sort.Interface
+// 	Push(x interface{}) // add x as element Len()
+// 	Pop() interface{}   // remove and return element Len() - 1.
+// }
+// 实现 sort.Interface 接口的 Len, Less, Swap方法
+func (h iheap) Len() int           { return len(h) }
+func (h iheap) Less(i, j int) bool { return h[i].cnt < h[j].cnt }
+func (h iheap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 
-// Push 实现container/heap interface{}的Push，Pop接口，receiver为指针
-func (h *Iheap) Push(x interface{}) {
-	*h = append(*h, x.([2]int))
+// 实现 Push,Pop 方法，receiver是指针
+func (h *iheap) Push(x interface{}) {
+	*h = append(*h, x.(pair))
 }
 
-// Pop 堆的删除操作，先用数组尾部元素替换数组头部元素，然后从上而下执行`heapifyDown`操作
-// Pop返回数组尾部元素
-func (h *Iheap) Pop() interface{} {
+func (h *iheap) Pop() interface{} {
 	old := *h
 	n := len(old)
 	x := old[n-1]
-	*h = old[0 : n-1]
+	*h = (*h)[:n-1]
 	return x
-}
-
-type freqPair struct {
-	num, cnt int
 }
 
 // 方法二：利用快排的分治思想，也是最有解
@@ -81,9 +84,9 @@ func topKFrequent2(nums []int, k int) []int {
 	for _, num := range nums {
 		freq[num]++
 	}
-	pairs := []freqPair{}
+	pairs := []pair{}
 	for k, v := range freq {
-		pairs = append(pairs, freqPair{k, v})
+		pairs = append(pairs, pair{k, v})
 	}
 
 	// 使用快排变形 O(N) 获取Pair数组中频次最大的 k 个元素（第 4 个参数是下标，因此是 k - 1）
@@ -97,10 +100,10 @@ func topKFrequent2(nums []int, k int) []int {
 
 // 快速排序，逆序排序
 // 最大的 k 个元素 的下标
-func quickSortPair(pairs []freqPair, lo, hi int, k int) []freqPair {
+func quickSortPair(pairs []pair, lo, hi int, k int) []pair {
 	// 分区操作，返回轴点索引下标
 	// 在数组nums的子区间[lo, hi] 执行 partition 操作，返回（选取的第一个nums[lo]作为pivot）排序以后应该在的位置
-	partition := func(pairs []freqPair, lo, hi int) int {
+	partition := func(pairs []pair, lo, hi int) int {
 		// 选第一个数作为轴点
 		pivot := pairs[lo].cnt
 		j := lo
