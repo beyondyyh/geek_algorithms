@@ -31,15 +31,15 @@ func getLeastNumbers(arr []int, k int) []int {
 // lo, hi 分别表示区间低位和高位，k 表示是要找的下标为k的数
 // 返回 [0,k] 的最小k个数
 func quickSearch(nums []int, lo, hi, k int) []int {
-	// 分治，选取第一个元素作为轴点povit，遍历剩下的元素把小于povit的放到左边，大于或等于povit放到右边
-	// 返回 povit 在排序后应该在的索引位置
+	// 分治，选取第一个元素作为轴点pivot，遍历剩下的元素把小于pivot的放到左边，大于或等于pivot放到右边
+	// 返回 pivot 在排序后应该在的索引位置
 	partition := func(nums []int, lo, hi int) int {
-		povit := nums[lo] // 选第一个数作为轴点
+		pivot := nums[lo] // 选第一个数作为轴点
 		j := lo           // j表示轴点的索引下标
 		for i := lo + 1; i <= hi; i++ {
-			if nums[i] < povit {
+			if nums[i] < pivot {
 				j++
-				// 比pivot小的交换到左边，大于或等于povit不处理，自然就在右边
+				// 比pivot小的交换到左边，大于或等于pivot不处理，自然就在右边
 				nums[i], nums[j] = nums[j], nums[i]
 			}
 		}
@@ -49,17 +49,17 @@ func quickSearch(nums []int, lo, hi, k int) []int {
 		return j
 	}
 
-	// 每次快排切分之后，找到排序后下标为 povit 的元素
-	// 1. 如果povit等于k：那么povit及其之前的数就是最小的k个数，直接返回
-	// 2. 如果povit大于k：则继续去左半部分找
-	// 3. 如果povit小于k：则继续去右半部分找
-	povit := partition(nums, lo, hi)
-	if povit == k {
-		return nums[0 : povit+1]
-	} else if povit > k {
-		return quickSearch(nums, lo, povit-1, k)
+	// 每次快排切分之后，找到排序后下标为 pivot 的元素
+	// 1. 如果index等于k：那么pivot及其之前的数就是最小的k个数，直接返回
+	// 2. 如果index大于k：则继续去左半部分找
+	// 3. 如果index小于k：则继续去右半部分找
+	index := partition(nums, lo, hi)
+	if index == k {
+		return nums[0 : index+1]
+	} else if index > k {
+		return quickSearch(nums, lo, index-1, k)
 	} else {
-		return quickSearch(nums, povit+1, hi, k)
+		return quickSearch(nums, index+1, hi, k)
 	}
 }
 
