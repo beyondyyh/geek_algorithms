@@ -35,7 +35,7 @@ func detectCycle(head *ListNode) *ListNode {
 	// 快指针重新指向头部
 	fast = head
 	for slow != fast {
-		slow, fast = fast.Next, slow.Next
+		slow, fast = slow.Next, fast.Next
 	}
 	return fast
 }

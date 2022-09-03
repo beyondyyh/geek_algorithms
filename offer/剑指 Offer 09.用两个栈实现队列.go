@@ -9,6 +9,9 @@ package offer
 // 输出：[null,null,3,-1]
 // @lc: https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/
 
+// 复杂度分析：
+// 针对每一个元素都入栈和出栈一次，所以时间复杂度为：O(1)
+// 空间复杂度：O(n) 栈中有n个元素
 type CQueue struct {
 	inStack  []int
 	outStack []int

@@ -222,7 +222,7 @@ func InorderIter(root *TreeNode) []int {
 
 	res := []int{}
 	cur := root
-	for cur != nil || stack.Len() != 0 {
+	for cur != nil || stack.Len() > 0 {
 		// 左子树，一插到底
 		for ; cur != nil; cur = cur.Left {
 			stack.PushBack(cur)
@@ -260,14 +260,14 @@ func PostorderIter(root *TreeNode) []int {
 
 	res := []int{}
 	cur := root
-	var lastVisit *TreeNode = nil
-	for cur != nil || stack.Len() != 0 {
+	for cur != nil || stack.Len() > 0 {
 		// 左子树，一插到底
 		for ; cur != nil; cur = cur.Left {
 			stack.PushBack(cur)
 		}
 	}
 
+	var lastVisit *TreeNode = nil
 	cur = stack.Back().Value.(*TreeNode)
 	if cur.Right == nil || cur.Right == lastVisit {
 		res = append(res, cur.Val)
